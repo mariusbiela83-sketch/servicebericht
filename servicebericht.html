@@ -404,7 +404,8 @@
 <div class="page-wrapper">
   <div class="action-bar">
     <button class="btn btn-outline" onclick="resetForm()">↺ Zurücksetzen</button>
-    <button class="btn btn-secondary" onclick="window.print()">⎙ Drucken</button>
+    <button class="btn btn-secondary" onclick="window.print()">⎙ Drucken / PDF</button>
+    <button class="btn btn-outline" onclick="sendEmail()" style="background:#e8f5e9;color:#2a7a4e;border-color:#4ac578;">✉ Per E-Mail senden</button>
     <button class="btn btn-primary" onclick="saveForm()">✓ Speichern</button>
   </div>
 
@@ -649,12 +650,14 @@
       </div>
 
       <p style="font-size:13px;color:var(--muted);margin-top:18px;font-style:italic;">Die Richtigkeit der Angaben wird hiermit bestätigt:</p>
-      <div class="sig-area">
+      <!-- Unterschriften -->
+      <div class="sig-area" style="margin-top:24px;">
         <div class="sig-box">
           <p>Datum / Unterschrift des Auftraggebers</p>
           <input type="text" id="sig-auftraggeber" placeholder="Name Auftraggeber">
+          <div style="margin-top:8px;border-top:1.5px dashed var(--border);height:60px;"></div>
         </div>
-        <div class="sig-box" id="sig-tech-box">
+        <div class="sig-box">
           <p>Datum / Unterschrift EC POWER-Servicetechniker</p>
           <div id="sig-tech-empty" style="font-size:12px;color:var(--muted);font-style:italic;padding:6px 0;">Bitte zuerst Servicetechniker auswählen</div>
           <div id="sig-tech-content" style="display:none;">
@@ -664,8 +667,8 @@
             </div>
             <div style="position:relative;border:1.5px solid var(--border);border-radius:6px;background:#fafbfd;overflow:hidden;">
               <canvas id="sig-canvas" height="90" style="display:block;width:100%;touch-action:none;cursor:crosshair;"></canvas>
-              <div id="sig-placeholder" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;color:#c8d0e0;font-size:13px;font-style:italic;">&#9997;&#65039; Hier unterschreiben&#8230;</div>
-              <button onclick="clearSig()" style="position:absolute;top:5px;right:5px;background:rgba(255,255,255,.9);border:1px solid var(--border);border-radius:4px;padding:2px 8px;font-family:'Barlow',sans-serif;font-size:11px;color:var(--muted);cursor:pointer;" title="Unterschrift löschen">&#10005;</button>
+              <div id="sig-placeholder" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;color:#c8d0e0;font-size:13px;font-style:italic;">✍️ Hier unterschreiben…</div>
+              <button onclick="clearSig()" style="position:absolute;top:5px;right:5px;background:rgba(255,255,255,.9);border:1px solid var(--border);border-radius:4px;padding:2px 8px;font-family:'Barlow',sans-serif;font-size:11px;color:var(--muted);cursor:pointer;">✕</button>
             </div>
           </div>
         </div>
@@ -1049,25 +1052,43 @@ window.addEventListener('load', function() {
       if (s.adresse) document.getElementById('adresse').value = s.adresse;
       if (s.xrgiId)  { document.getElementById('xrgi-id').value = s.xrgiId; onXrgiManual(s.xrgiId); }
       if (s.betrieb) document.getElementById('betriebsstunden').value = s.betrieb;
-      if (s.tech)    { document.getElementById('techniker').value = s.tech; onTechnikerChange(); }
+      if (s.tech)    { const tEl = document.getElementById('techniker'); if(tEl) { tEl.value = s.tech; onTechnikerChange(); } }
     }
   } catch(e) {}
 
   // ── 3. Techniker-Dropdown Event ───────────────────────────────
-  const techSel = document.getElementById('techniker');
-  if (techSel) techSel.addEventListener('change', onTechnikerChange);
+  // Techniker-Dropdowns werden per onchange im HTML gesteuert
 
 });
 
 // ═══════════════════════════════════════════════════════════════
 // DATENBANK LOOKUP & AUTO-FILL
 // ═══════════════════════════════════════════════════════════════
+// Email-Zuordnung Techniker
+const TECH_EMAILS = {
+  'Marius Biela':      'marius.biela@whse.de',
+  'Michael Freischlad':'michael.freischlad@whse.de',
+  'Ali':               'ali@whse.de',
+  'Munib':             'munib@whse.de',
+  'Thomas Sturm':      'thomas.sturm@whse.de',
+};
+
+function getSelectedTechniker() {
+  const v = document.getElementById('techniker')?.value;
+  return v ? [v] : [];
+}
+
 function applyDBEntry(id) {
   const entry = ANLAGEN_DB[id.trim()];
   if (!entry) return false;
   document.getElementById('adresse').value = entry.adresse;
-  document.getElementById('a-fahrzanzahl').value = entry.fahrtStd;
-  document.getElementById('a-kmanzahl').value = entry.km;
+
+  // Hin + Rückfahrt × Anzahl Techniker (mind. 1)
+  const fahrtGes = +(entry.fahrtStd * 2).toFixed(2);
+  const kmGes    = entry.km * 2;
+  document.getElementById('a-fahrzanzahl').value = fahrtGes;
+  document.getElementById('a-kmanzahl').value    = kmGes;
+
   ['adresse','a-fahrzanzahl','a-kmanzahl'].forEach(fid => {
     const el = document.getElementById(fid);
     if (el) { el.classList.add('autofilled'); setTimeout(() => el.classList.remove('autofilled'), 3000); }
@@ -1111,17 +1132,11 @@ function showSuggestions(val) {
 
   box.innerHTML = matches.map(([id, e]) => {
     const adr = e.adresse.replace('\n', ', ');
-    const highlight = id.replace(q, `<strong>${q}</strong>`);
-    return `<div onclick="selectSuggestion('${id}')"
-      style="padding:9px 12px;cursor:pointer;border-bottom:1px solid var(--border);
-      transition:background .1s;"
-      onmouseover="this.style.background='#eef1f8'"
-      onmouseout="this.style.background=''"
-    >
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;
-        color:var(--navy);letter-spacing:.5px;">${highlight}</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:1px;">${adr} &nbsp;·&nbsp; ${e.km} km / ${e.fahrtStd*60} min</div>
-    </div>`;
+    const hl  = id.replace(q, '<strong>' + q + '</strong>');
+    return '<div onclick="selectSuggestion(\''+id+'\')" style="padding:9px 12px;cursor:pointer;border-bottom:1px solid var(--border);transition:background .1s;" onmouseover="this.style.background=\'#eef1f8\'" onmouseout="this.style.background=\'\'">'
+      + '<div style="font-family:Barlow Condensed,sans-serif;font-size:16px;font-weight:700;color:var(--navy);">' + hl + '</div>'
+      + '<div style="font-size:11px;color:var(--muted);">' + adr + ' &nbsp;·&nbsp; ' + e.km + ' km / ' + (e.fahrtStd*60) + ' min</div>'
+      + '</div>';
   }).join('');
 
   box.style.display = 'block';
@@ -1173,17 +1188,11 @@ async function startCam() {
     video.style.display = 'none';
     if (guide) guide.style.display = 'none';
     document.getElementById('cam-area').insertAdjacentHTML('beforeend',
-      `<div id="cam-error" style="color:#8899cc;text-align:center;padding:28px 16px;font-size:13px;
-       position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-       flex-direction:column;gap:14px;background:#0a0f1e;">
-        <span style="font-size:40px;">📷</span>
-        <span>Kamera nicht verfügbar<br><small style="font-size:11px;color:#5566aa;">${err.message}</small></span>
-        <button onclick="document.getElementById('file-upload').click()"
-          style="background:var(--gold);color:var(--navy);border:none;border-radius:6px;
-          padding:8px 18px;font-family:Barlow,sans-serif;font-weight:700;font-size:13px;cursor:pointer;">
-          📁 Bild aus Galerie wählen
-        </button>
-      </div>`
+      '<div id="cam-error" style="color:#8899cc;text-align:center;padding:28px 16px;font-size:13px;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:#0a0f1e;">'
+      + '<span style="font-size:40px;">📷</span>'
+      + '<span>Kamera nicht verfügbar</span>'
+      + '<button onclick="document.getElementById(\'file-upload\').click()" style="background:var(--gold);color:var(--navy);border:none;border-radius:6px;padding:8px 18px;font-family:Barlow,sans-serif;font-weight:700;font-size:13px;cursor:pointer;">📁 Bild aus Galerie wählen</button>'
+      + '</div>'
     );
     // Eingabefeld direkt zeigen
     document.getElementById('result-row').classList.add('show');
@@ -1298,10 +1307,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // ═══════════════════════════════════════════════════════════════
 function addRow() {
   document.getElementById('waren-body').insertAdjacentHTML('beforeend',
-    `<tr><td class="wtd"><input type="text" placeholder="Art.-Nr."></td>
-     <td class="wtd"><input type="text" placeholder="Bezeichnung"></td>
-     <td class="wtd"><input type="number" placeholder="0" min="0"></td>
-     <td style="text-align:center"><input type="text" placeholder="–" style="text-align:center"></td></tr>`
+    '<tr><td class="wtd"><input type="text" placeholder="Art.-Nr."></td>'
+    + '<td class="wtd"><input type="text" placeholder="Bezeichnung"></td>'
+    + '<td class="wtd"><input type="number" placeholder="0" min="0"></td>'
+    + '<td style="text-align:center"><input type="text" placeholder="–" style="text-align:center;width:100%"></td></tr>'
   );
 }
 
@@ -1333,7 +1342,7 @@ function resetForm() {
   // Reset signature
   document.getElementById('sig-tech-empty').style.display = 'block';
   document.getElementById('sig-tech-content').style.display = 'none';
-  if (sigCtx) sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+  clearSig();
   showToast('Formular zurückgesetzt');
 }
 
@@ -1374,7 +1383,7 @@ function startDictation() {
   finalTranscript = '';
   recognition = new SR();
   recognition.lang = 'de-DE';
-  recognition.continuous = true;
+  recognition.continuous = false;     // false = kein Wiederholen alter Ergebnisse
   recognition.interimResults = true;
 
   recognition.onstart = () => {
@@ -1385,13 +1394,13 @@ function startDictation() {
   };
 
   recognition.onresult = e => {
+    // Nur neue Ergebnisse seit letztem Event verarbeiten (vermeidet Wiederholungen)
     let interim = '';
-    finalTranscript = '';
-    for (let i = 0; i < e.results.length; i++) {
+    for (let i = e.resultIndex; i < e.results.length; i++) {
       if (e.results[i].isFinal) {
         finalTranscript += e.results[i][0].transcript + ' ';
       } else {
-        interim += e.results[i][0].transcript;
+        interim = e.results[i][0].transcript;
       }
     }
     document.getElementById('interim-text').textContent = interim;
@@ -1435,108 +1444,84 @@ function stopDictationUI() {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// DIGITALE UNTERSCHRIFT TECHNIKER
+// DIGITALE UNTERSCHRIFT
 // ═══════════════════════════════════════════════════════════════
 let sigCanvas = null, sigCtx = null, sigDrawing = false;
-
-function onTechnikerChange() {
-  const sel   = document.getElementById('techniker');
-  const name  = sel ? sel.value : '';
-  const empty = document.getElementById('sig-tech-empty');
-  const block = document.getElementById('sig-tech-content');
-
-  if (!name) {
-    empty.style.display = 'block';
-    block.style.display = 'none';
-    return;
-  }
-
-  // Datum formatieren
-  const t = new Date();
-  const pad = n => String(n).padStart(2,'0');
-  const dateStr = `${pad(t.getDate())}.${pad(t.getMonth()+1)}.${t.getFullYear()}`;
-  document.getElementById('sig-tech-name').textContent = name;
-  document.getElementById('sig-tech-date').textContent = dateStr;
-  empty.style.display = 'none';
-  block.style.display = 'block';
-
-  // Canvas erst nach dem Rendern initialisieren
-  requestAnimationFrame(() => setTimeout(initSigCanvas, 50));
-}
 
 function initSigCanvas() {
   sigCanvas = document.getElementById('sig-canvas');
   if (!sigCanvas) return;
-  const w = sigCanvas.parentElement.offsetWidth || 340;
-  sigCanvas.width  = w;
-  sigCanvas.height = 90;
+  sigCanvas.width = sigCanvas.offsetWidth || 340;
   sigCtx = sigCanvas.getContext('2d');
   sigCtx.strokeStyle = '#1a2744';
   sigCtx.lineWidth   = 2.2;
   sigCtx.lineCap     = 'round';
   sigCtx.lineJoin    = 'round';
 
-  // Event-Listener nur einmal hinzufügen
-  sigCanvas.onmousedown  = sigStart;
-  sigCanvas.onmousemove  = sigMove;
+  sigCanvas.onmousedown = e => {
+    e.preventDefault(); sigDrawing = true;
+    const r = sigCanvas.getBoundingClientRect();
+    sigCtx.beginPath();
+    sigCtx.moveTo((e.clientX-r.left)*(sigCanvas.width/r.width),(e.clientY-r.top)*(sigCanvas.height/r.height));
+    document.getElementById('sig-placeholder').style.display = 'none';
+  };
+  sigCanvas.onmousemove = e => {
+    if (!sigDrawing) return;
+    const r = sigCanvas.getBoundingClientRect();
+    sigCtx.lineTo((e.clientX-r.left)*(sigCanvas.width/r.width),(e.clientY-r.top)*(sigCanvas.height/r.height));
+    sigCtx.stroke();
+  };
   sigCanvas.onmouseup    = () => sigDrawing = false;
   sigCanvas.onmouseleave = () => sigDrawing = false;
-  sigCanvas.ontouchstart = sigTouchStart;
-  sigCanvas.ontouchmove  = sigTouchMove;
-  sigCanvas.ontouchend   = () => sigDrawing = false;
-}
-
-function getPos(e) {
-  const r = sigCanvas.getBoundingClientRect();
-  return {
-    x: (e.clientX - r.left) * (sigCanvas.width  / r.width),
-    y: (e.clientY - r.top)  * (sigCanvas.height / r.height)
+  sigCanvas.ontouchstart = e => {
+    e.preventDefault(); sigDrawing = true;
+    const r = sigCanvas.getBoundingClientRect(), t = e.touches[0];
+    sigCtx.beginPath();
+    sigCtx.moveTo((t.clientX-r.left)*(sigCanvas.width/r.width),(t.clientY-r.top)*(sigCanvas.height/r.height));
+    document.getElementById('sig-placeholder').style.display = 'none';
   };
+  sigCanvas.ontouchmove = e => {
+    e.preventDefault(); if (!sigDrawing) return;
+    const r = sigCanvas.getBoundingClientRect(), t = e.touches[0];
+    sigCtx.lineTo((t.clientX-r.left)*(sigCanvas.width/r.width),(t.clientY-r.top)*(sigCanvas.height/r.height));
+    sigCtx.stroke();
+  };
+  sigCanvas.ontouchend = () => sigDrawing = false;
 }
 
-function sigStart(e) {
-  e.preventDefault();
-  sigDrawing = true;
-  const p = getPos(e);
-  sigCtx.beginPath();
-  sigCtx.moveTo(p.x, p.y);
-  document.getElementById('sig-placeholder').style.display = 'none';
-}
-function sigMove(e) {
-  if (!sigDrawing) return;
-  e.preventDefault();
-  const p = getPos(e);
-  sigCtx.lineTo(p.x, p.y);
-  sigCtx.stroke();
-}
-function sigTouchStart(e) {
-  e.preventDefault();
-  sigDrawing = true;
-  const t = e.touches[0];
-  const r = sigCanvas.getBoundingClientRect();
-  sigCtx.beginPath();
-  sigCtx.moveTo(
-    (t.clientX - r.left) * (sigCanvas.width  / r.width),
-    (t.clientY - r.top)  * (sigCanvas.height / r.height)
-  );
-  document.getElementById('sig-placeholder').style.display = 'none';
-}
-function sigTouchMove(e) {
-  e.preventDefault();
-  if (!sigDrawing) return;
-  const t = e.touches[0];
-  const r = sigCanvas.getBoundingClientRect();
-  sigCtx.lineTo(
-    (t.clientX - r.left) * (sigCanvas.width  / r.width),
-    (t.clientY - r.top)  * (sigCanvas.height / r.height)
-  );
-  sigCtx.stroke();
-}
 function clearSig() {
-  if (!sigCtx) return;
+  if (!sigCtx || !sigCanvas) return;
   sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
   document.getElementById('sig-placeholder').style.display = 'flex';
 }
+
+function onTechnikerChange() {
+  const selected = getSelectedTechniker();
+  const empty   = document.getElementById('sig-tech-empty');
+  const sigBox  = document.getElementById('sig-tech-content');
+
+  if (selected.length === 0) {
+    empty.style.display = 'block';
+    sigBox.style.display = 'none';
+  } else {
+    // Nur erster Techniker unterschreibt
+    const firstName = selected[0];
+    const t = new Date();
+    const pad = n => String(n).padStart(2,'0');
+    document.getElementById('sig-tech-name').textContent = firstName;
+    document.getElementById('sig-tech-date').textContent =
+      `${pad(t.getDate())}.${pad(t.getMonth()+1)}.${t.getFullYear()}`;
+    empty.style.display = 'none';
+    sigBox.style.display = 'block';
+    requestAnimationFrame(() => setTimeout(initSigCanvas, 60));
+  }
+
+  // KM + Fahrtzeit neu berechnen
+  const xrgiId = document.getElementById('xrgi-id')?.value?.trim() || '';
+  if (xrgiId && ANLAGEN_DB[xrgiId]) applyDBEntry(xrgiId);
+}
+
+
 
 
 // ═══════════════════════════════════════════════════════════════
@@ -1545,7 +1530,7 @@ function clearSig() {
 function parseZeit(str) {
   // Akzeptiert: "08:00", "08:00 - 16:00", "08:00 – 16:00", "08:00-16:00"
   if (!str || !str.trim()) return null;
-  const match = str.trim().match(/(\d{1,2})[:\.](\d{2})\s*[-–]\s*(\d{1,2})[:\.](\d{2})/);
+  const match = str.trim().match(/([0-9]{1,2})[:.]([0-9]{2}) *[-–] *([0-9]{1,2})[:.]([0-9]{2})/);
   if (!match) return null;
   const von = parseInt(match[1]) * 60 + parseInt(match[2]);
   const bis = parseInt(match[3]) * 60 + parseInt(match[4]);
@@ -1596,29 +1581,130 @@ function activateDictField(fieldId, label) {
 }
 
 // ═══════════════════════════════════════════════════════════════
+// E-MAIL SENDEN
+// ═══════════════════════════════════════════════════════════════
+function sendEmail() {
+  const selected = getSelectedTechniker();
+  if (selected.length === 0) {
+    showToast('Bitte zuerst Servicetechniker auswählen');
+    return;
+  }
+
+  // Empfänger-Adressen zusammenstellen
+  const toAddresses = selected
+    .map(name => TECH_EMAILS[name])
+    .filter(Boolean)
+    .join(',');
+
+  if (!toAddresses) {
+    showToast('Keine E-Mail-Adresse für gewählten Techniker hinterlegt');
+    return;
+  }
+
+  // Formulardaten sammeln
+  const datum     = document.getElementById('datum').value || '–';
+  const adresse   = (document.getElementById('adresse').value || '–').replace(/\n/g, ', ');
+  const xrgiId    = document.getElementById('xrgi-id').value || '–';
+  const crNr      = document.getElementById('cr-nr').value || '–';
+  const betrieb   = document.getElementById('betriebsstunden').value || '–';
+  const montagevon= document.getElementById('a-montagevon').value || '–';
+  const montageAz = document.getElementById('a-montageanzahl').value || '–';
+  const pausenAz  = document.getElementById('a-pausenanzahl').value || '–';
+  const fahrtAz   = document.getElementById('a-fahrzanzahl').value || '–';
+  const kmAz      = document.getElementById('a-kmanzahl').value || '–';
+  const bemF      = document.getElementById('bem-fehler').value || '–';
+  const bemU      = document.getElementById('bem-ursache').value || '–';
+  const bemA      = document.getElementById('bem-arbeiten').value || '–';
+  const bemS      = document.getElementById('bem-sonstiges').value || '–';
+
+  const subject = `Einsatzbericht ${datum} – ${adresse} (XRGI ${xrgiId})`;
+
+  const body = [
+    `EC POWER XRGI – Einsatzbericht`,
+    `================================`,
+    ``,
+    `Techniker:     ${selected.join(', ')}`,
+    `Datum:         ${datum}`,
+    `CR-Nummer:     ${crNr}`,
+    `Anlage:        ${adresse}`,
+    `XRGI-ID:       ${xrgiId}`,
+    `Betriebsstd.:  ${betrieb} Std.`,
+    ``,
+    `── Zeiten ──────────────────────`,
+    `Arbeitszeit:   ${montagevon}  →  ${montageAz} Std. (netto)`,
+    `Pausen:        ${pausenAz} Std.`,
+    `Fahrtzeit:     ${fahrtAz} Std. (Hin- & Rückfahrt)`,
+    `Kilometer:     ${kmAz} km (Hin- & Rückfahrt)`,
+    ``,
+    `── Bemerkungen ─────────────────`,
+    `F – Fehler:`,
+    `  ${bemF}`,
+    ``,
+    `U – Ursache:`,
+    `  ${bemU}`,
+    ``,
+    `A – Durchgeführte Arbeiten:`,
+    `  ${bemA}`,
+    ``,
+    `S – Sonstiges:`,
+    `  ${bemS}`,
+    ``,
+    `================================`,
+    `WHSE GmbH & Co. KG | Bitzenstraße 11a | 35708 Haiger`,
+  ].join('\n');
+
+  // PDF drucken + Mail öffnen
+  const hint = document.createElement('div');
+  hint.style.cssText = 'position:fixed;inset:0;background:rgba(26,39,68,.85);z-index:9000;'
+    + 'display:flex;align-items:center;justify-content:center;';
+  hint.innerHTML =
+    '<div style="background:white;border-radius:14px;padding:28px 32px;max-width:420px;text-align:center;font-family:Barlow,sans-serif;box-shadow:0 20px 60px rgba(0,0,0,.4);">'
+    + '<div style="font-size:32px;margin-bottom:12px;">📄✉️</div>'
+    + '<div style="font-size:18px;font-weight:700;color:#1a2744;margin-bottom:8px;">Bericht senden</div>'
+    + '<div style="font-size:13px;color:#6b7a99;margin-bottom:20px;line-height:1.5;">'
+    + '<strong>Schritt 1:</strong> Als PDF drucken (Drucken-Dialog öffnet sich).<br>'
+    + '<strong>Schritt 2:</strong> E-Mail-Programm öffnet sich automatisch.<br>'
+    + '<span style="color:#e8b84b;font-weight:600;">Empfänger: ' + selected.map(function(n){ return TECH_EMAILS[n]||n; }).join(', ') + '</span>'
+    + '</div>'
+    + '<div style="display:flex;gap:10px;justify-content:center;margin-top:16px;">'
+    + '<button id="email-print-btn" style="background:#1a2744;color:white;border:none;border-radius:7px;padding:10px 20px;font-family:Barlow,sans-serif;font-weight:700;font-size:14px;cursor:pointer;">⎙ Als PDF drucken</button>'
+    + '<button id="email-skip-btn" style="background:#eef1f8;color:#1a2744;border:1.5px solid #c8d0e0;border-radius:7px;padding:10px 16px;font-family:Barlow,sans-serif;font-weight:600;font-size:13px;cursor:pointer;">Überspringen</button>'
+    + '</div></div>';
+  document.body.appendChild(hint);
+
+  document.getElementById('email-print-btn').onclick = () => {
+    document.body.removeChild(hint);
+    setTimeout(() => {
+      window.print();
+      setTimeout(() => {
+        window.location.href = 'mailto:' + toAddresses
+          + '?subject=' + encodeURIComponent(subject)
+          + '&body='    + encodeURIComponent(body);
+      }, 1500);
+    }, 300);
+  };
+
+  document.getElementById('email-skip-btn').onclick = () => {
+    document.body.removeChild(hint);
+    window.location.href = 'mailto:' + toAddresses
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body='    + encodeURIComponent(body);
+  };
+}
+
+// ═══════════════════════════════════════════════════════════════
 // SERVICE WORKER REGISTRIERUNG (für Offline-Nutzung)
 // ═══════════════════════════════════════════════════════════════
 if ('serviceWorker' in navigator) {
-  const swCode = `
-    const CACHE = 'ecpower-v1';
-    self.addEventListener('install', e => {
-      self.skipWaiting();
-    });
-    self.addEventListener('activate', e => {
-      e.waitUntil(clients.claim());
-    });
-    self.addEventListener('fetch', e => {
-      if (e.request.url.includes('fonts.googleapis') || e.request.url.includes('fonts.gstatic')) {
-        e.respondWith(
-          caches.open(CACHE).then(cache =>
-            cache.match(e.request).then(r => r || fetch(e.request).then(res => {
-              cache.put(e.request, res.clone()); return res;
-            }).catch(() => new Response('')))
-          )
-        );
-      }
-    });
-  `;
+  var swCode =
+    'const CACHE = \'ecpower-v1\';' +
+    'self.addEventListener(\'install\', function(e){ self.skipWaiting(); });' +
+    'self.addEventListener(\'activate\', function(e){ e.waitUntil(clients.claim()); });' +
+    'self.addEventListener(\'fetch\', function(e){' +
+    '  if(e.request.url.includes(\'fonts.googleapis\') || e.request.url.includes(\'fonts.gstatic\')){' +
+    '    e.respondWith(caches.open(CACHE).then(function(c){ return c.match(e.request).then(function(r){ return r||fetch(e.request).then(function(res){ c.put(e.request,res.clone()); return res; }).catch(function(){ return new Response(\'\'); }); }); }));' +
+    '  }' +
+    '}).';
   const blob = new Blob([swCode], { type: 'application/javascript' });
   const swUrl = URL.createObjectURL(blob);
   navigator.serviceWorker.register(swUrl).catch(() => {});
@@ -1646,6 +1732,7 @@ function installApp() {
     deferredInstallPrompt.userChoice.then(() => { deferredInstallPrompt = null; });
   }
 }
+
 
 </script>
 </body>
