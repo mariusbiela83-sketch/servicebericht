@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Einsatzbericht">
+<meta name="application-name" content="Einsatzbericht">
+<meta name="theme-color" content="#1a2744">
+<meta name="description" content="EC POWER WHSE – Digitaler Einsatzbericht">
+<title>EC POWER – Einsatzbericht</title>
+<!-- Inline PWA Manifest -->
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIkVDIFBPV0VSIEVpbnNhdHpiZXJpY2h0IiwgInNob3J0X25hbWUiOiAiRWluc2F0emJlcmljaHQiLCAiZGVzY3JpcHRpb24iOiAiV0hTRSBHbWJIIFx1MjAxMyBEaWdpdGFsZXIgU2VydmljZWJlcmljaHQgZlx1MDBmY3IgWFJHSSBBbmxhZ2VuIiwgInN0YXJ0X3VybCI6ICIuIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMxYTI3NDQiLCAidGhlbWVfY29sb3IiOiAiIzFhMjc0NCIsICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdC1wcmltYXJ5IiwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIZHBaSFJvUFNJeE9USWlJR2hsYVdkb2REMGlNVGt5SWlCMmFXVjNRbTk0UFNJd0lEQWdNVGt5SURFNU1pSStDaUFnUEhKbFkzUWdkMmxrZEdnOUlqRTVNaUlnYUdWcFoyaDBQU0l4T1RJaUlISjRQU0l3SWlCbWFXeHNQU0lqTVdFeU56UTBJaTgrQ2lBZ1BDRXRMU0JQZFhSbGNpQmliM0prWlhJZ2JHbHVaU0F0TFQ0S0lDQThjbVZqZENCNFBTSTRJaUI1UFNJNElpQjNhV1IwYUQwaU1UYzJJaUJvWldsbmFIUTlJakUzTmlJZ2NuZzlJakFpSUdacGJHdzlJbTV2Ym1VaUlITjBjbTlyWlQwaUkyVTRZamcwWWlJZ2MzUnliMnRsTFhkcFpIUm9QU0l6SWk4K0NpQWdQQ0V0TFNCRlF5QlFUMWRGVWlCMFpYaDBJR2R5YjNWd0lDMGdZMlZ1ZEdWeVpXUWdMUzArQ2lBZ1BDRXRMU0FpUlVNaUlHeGhjbWRsSUMwdFBnb2dJRHgwWlhoMElIZzlJamsySWlCNVBTSTVNQ0lnWm05dWRDMW1ZVzFwYkhrOUlrRnlhV0ZzSUVKc1lXTnJMQ0JCY21saGJDSWdabTl1ZEMxM1pXbG5hSFE5SWprd01DSWdabTl1ZEMxemFYcGxQU0kzTWlJZ0NpQWdJQ0JtYVd4c1BTSWpaVGhpT0RSaUlpQjBaWGgwTFdGdVkyaHZjajBpYldsa1pHeGxJaUJrYjIxcGJtRnVkQzFpWVhObGJHbHVaVDBpWVhWMGJ5SStSVU04TDNSbGVIUStDaUFnUENFdExTQkliM0pwZW05dWRHRnNJR3hwYm1VZ0xTMCtDaUFnUEhKbFkzUWdlRDBpTWpBaUlIazlJakV3TUNJZ2QybGtkR2c5SWpFMU1pSWdhR1ZwWjJoMFBTSXpJaUJtYVd4c1BTSWpaVGhpT0RSaUlpOCtDaUFnUENFdExTQlFUMWRGVWlCMFpYaDBJQzB0UGdvZ0lEeDBaWGgwSUhnOUlqazJJaUI1UFNJeE16Z2lJR1p2Ym5RdFptRnRhV3g1UFNKQmNtbGhiQ3dnYzJGdWN5MXpaWEpwWmlJZ1ptOXVkQzEzWldsbmFIUTlJamN3TUNJZ1ptOXVkQzF6YVhwbFBTSXlPQ0lLSUNBZ0lHWnBiR3c5SWlObE9HSTROR0lpSUhSbGVIUXRZVzVqYUc5eVBTSnRhV1JrYkdVaUlHeGxkSFJsY2kxemNHRmphVzVuUFNJNElqNVFUMWRGVWp3dmRHVjRkRDRLUEM5emRtYysiLCAic2l6ZXMiOiAiMTkyeDE5MiIsICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLCAicHVycG9zZSI6ICJhbnkgbWFza2FibGUifSwgeyJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhkcFpIUm9QU0kxTVRJaUlHaGxhV2RvZEQwaU5URXlJaUIyYVdWM1FtOTRQU0l3SURBZ05URXlJRFV4TWlJK0NpQWdQSEpsWTNRZ2QybGtkR2c5SWpVeE1pSWdhR1ZwWjJoMFBTSTFNVElpSUhKNFBTSXdJaUJtYVd4c1BTSWpNV0V5TnpRMElpOCtDaUFnUEhKbFkzUWdlRDBpTVRZaUlIazlJakUySWlCM2FXUjBhRDBpTkRnd0lpQm9aV2xuYUhROUlqUTRNQ0lnY25nOUlqQWlJR1pwYkd3OUltNXZibVVpSUhOMGNtOXJaVDBpSTJVNFlqZzBZaUlnYzNSeWIydGxMWGRwWkhSb1BTSTJJaTgrQ2lBZ1BIUmxlSFFnZUQwaU1qVTJJaUI1UFNJeU16WWlJR1p2Ym5RdFptRnRhV3g1UFNKQmNtbGhiQ0JDYkdGamF5d2dRWEpwWVd3aUlHWnZiblF0ZDJWcFoyaDBQU0k1TURBaUlHWnZiblF0YzJsNlpUMGlNVGt3SWlBS0lDQWdJR1pwYkd3OUlpTmxPR0k0TkdJaUlIUmxlSFF0WVc1amFHOXlQU0p0YVdSa2JHVWlQa1ZEUEM5MFpYaDBQZ29nSUR4eVpXTjBJSGc5SWpRd0lpQjVQU0l5TlRnaUlIZHBaSFJvUFNJME16SWlJR2hsYVdkb2REMGlOeUlnWm1sc2JEMGlJMlU0WWpnMFlpSXZQZ29nSUR4MFpYaDBJSGc5SWpJMU5pSWdlVDBpTXpZd0lpQm1iMjUwTFdaaGJXbHNlVDBpUVhKcFlXd3NJSE5oYm5NdGMyVnlhV1lpSUdadmJuUXRkMlZwWjJoMFBTSTNNREFpSUdadmJuUXRjMmw2WlQwaU56SWlDaUFnSUNCbWFXeHNQU0lqWlRoaU9EUmlJaUIwWlhoMExXRnVZMmh2Y2owaWJXbGtaR3hsSWlCc1pYUjBaWEl0YzNCaFkybHVaejBpTVRnaVBsQlBWMFZTUEM5MFpYaDBQZ284TDNOMlp6ND0iLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLCAicHVycG9zZSI6ICJhbnkgbWFza2FibGUifV19">
+<!-- Apple Touch Icon (inline SVG → base64) -->
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiB2aWV3Qm94PSIwIDAgMTgwIDE4MCI+CiAgPHJlY3Qgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxODAiIHJ4PSIwIiBmaWxsPSIjMWEyNzQ0Ii8+CiAgPHJlY3QgeD0iNyIgeT0iNyIgd2lkdGg9IjE2NiIgaGVpZ2h0PSIxNjYiIHJ4PSIwIiBmaWxsPSJub25lIiBzdHJva2U9IiNlOGI4NGIiIHN0cm9rZS13aWR0aD0iMyIvPgogIDx0ZXh0IHg9IjkwIiB5PSI4OCIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLCBBcmlhbCIgZm9udC13ZWlnaHQ9IjkwMCIgZm9udC1zaXplPSI2OCIgCiAgICBmaWxsPSIjZThiODRiIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5FQzwvdGV4dD4KICA8cmVjdCB4PSIxOCIgeT0iOTYiIHdpZHRoPSIxNDQiIGhlaWdodD0iMyIgZmlsbD0iI2U4Yjg0YiIvPgogIDx0ZXh0IHg9IjkwIiB5PSIxMzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1zaXplPSIyNiIKICAgIGZpbGw9IiNlOGI4NGIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSI3Ij5QT1dFUjwvdGV4dD4KPC9zdmc+">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  /* Fallback fonts wenn offline */
+  @font-face { font-family: 'Barlow'; src: local('Arial'), local('Helvetica'); font-weight: 400 700; }
+  @font-face { font-family: 'Barlow Condensed'; src: local('Arial Narrow'), local('Arial'); font-weight: 600 700; }
+</style>
+<style>
+  :root {
+    --navy: #1a2744; --gold: #e8b84b; --border: #c8d0e0;
+    --text: #1e2535; --muted: #6b7a99; --input-bg: #eef1f8; --green: #4ac578;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Barlow', sans-serif; background: #e8ecf5; min-height: 100vh; padding: 30px 16px; color: var(--text); }
+  .page-wrapper { max-width: 860px; margin: 0 auto; }
+
+  .action-bar { display: flex; justify-content: flex-end; gap: 12px; margin-bottom: 16px; }
+  .btn { font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 13px; padding: 9px 20px; border: none; border-radius: 6px; cursor: pointer; letter-spacing: .5px; transition: all .15s; }
+  .btn-primary { background: var(--navy); color: white; }
+  .btn-primary:hover { background: #253460; }
+  .btn-secondary { background: var(--gold); color: var(--navy); }
+  .btn-secondary:hover { background: #d4a73a; }
+  .btn-outline { background: white; color: var(--navy); border: 1.5px solid var(--border); }
+  .btn-outline:hover { border-color: var(--navy); }
+
+  .form-card { background: white; border-radius: 12px; box-shadow: 0 4px 24px rgba(26,39,68,.10); overflow: hidden; }
+  .form-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 28px 32px 20px; border-bottom: 3px solid var(--gold); }
+  .header-left h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 700; color: var(--navy); letter-spacing: 1px; line-height: 1; }
+  .header-left p { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .logo-badge { background: var(--navy); color: white; padding: 8px 14px; border-radius: 8px; display: inline-block; }
+  .logo-badge .ec { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: 2px; line-height: 1; }
+  .logo-badge .ec span { color: var(--gold); }
+  .logo-badge .sub { font-size: 9px; font-weight: 600; letter-spacing: 3px; color: var(--gold); text-align: center; display: block; }
+  .logo-badge .partner { font-size: 8px; letter-spacing: 2px; color: #8899cc; text-align: center; display: block; }
+  .logo-badge .pp { font-size: 10px; font-weight: 700; letter-spacing: 2px; background: var(--gold); color: var(--navy); text-align: center; display: block; margin-top: 4px; padding: 1px 4px; border-radius: 3px; }
+  .form-body { padding: 24px 32px 32px; }
+  .meta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .section-header { background: var(--navy); color: white; padding: 7px 14px; font-weight: 700; font-size: 13px; letter-spacing: .5px; border-radius: 4px 4px 0 0; margin-top: 20px; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1.5px solid var(--border); border-top: none; border-radius: 0 0 4px 4px; overflow: hidden; }
+  .info-cell { display: flex; flex-direction: column; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .info-cell:nth-child(2n) { border-right: none; }
+  .info-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .info-cell label { font-size: 10px; font-weight: 700; color: var(--navy); padding: 5px 10px 2px; letter-spacing: .3px; text-transform: uppercase; }
+  .info-cell input { border: none; background: transparent; font-family: 'Barlow', sans-serif; font-size: 14px; color: var(--text); padding: 2px 10px 8px; outline: none; width: 100%; }
+  .info-cell input:focus { background: var(--input-bg); }
+
+  /* XRGI scan */
+  .xrgi-row { display: flex; align-items: center; padding: 2px 6px 8px 10px; gap: 6px; }
+  .xrgi-row input { flex: 1; border: none; background: transparent; font-family: 'Barlow', sans-serif; font-size: 14px; color: var(--text); padding: 0; outline: none; min-width: 0; }
+  .scan-btn { display: flex; align-items: center; gap: 4px; background: var(--gold); color: var(--navy); border: none; border-radius: 5px; padding: 5px 9px; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 11px; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: background .15s; }
+  .scan-btn:hover { background: #d4a73a; }
+  .scan-btn svg { width: 13px; height: 13px; }
+
+  /* Auto-fill badge */
+  .autofill-badge { display: none; background: rgba(74,197,120,.15); border: 1px solid var(--green); color: #2a8a4e; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 10px; margin: 0 10px 6px; letter-spacing: .3px; }
+  .autofill-badge.show { display: inline-block; }
+
+  /* Camera Modal */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(5,10,25,.88); z-index: 1000; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+  .modal-overlay.active { display: flex; }
+  .modal-box { background: var(--navy); border-radius: 16px; padding: 24px; max-width: 480px; width: 95%; color: white; box-shadow: 0 20px 60px rgba(0,0,0,.6); animation: pop .2s ease; }
+  @keyframes pop { from { transform: scale(.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .modal-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; color: var(--gold); margin-bottom: 3px; }
+  .modal-sub { font-size: 12px; color: #8899cc; margin-bottom: 14px; }
+  #cam-area { position: relative; background: #0a0f1e; border-radius: 10px; overflow: hidden; aspect-ratio: 4/3; }
+  #cam-video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  #cam-canvas { display: none; }
+  #cam-preview { display: none; width: 100%; height: 100%; object-fit: contain; }
+  .guide-wrap { position: absolute; inset: 0; pointer-events: none; }
+  .guide-box { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 76%; height: 30%; border: 2.5px solid var(--gold); border-radius: 8px; box-shadow: 0 0 0 2000px rgba(0,0,0,.42); }
+  .guide-label { position: absolute; bottom: calc(35% + 4px); left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 600; color: var(--gold); background: rgba(26,39,68,.85); padding: 2px 10px; border-radius: 4px; white-space: nowrap; letter-spacing: .5px; }
+  .scan-line { position: absolute; left: 13%; width: 74%; height: 2px; background: linear-gradient(90deg,transparent,var(--gold),transparent); animation: scanAnim 1.8s ease-in-out infinite; top: 36%; }
+  @keyframes scanAnim { 0%,100% { top: 36%; } 50% { top: 57%; } }
+  #ocr-overlay { display: none; position: absolute; inset: 0; background: rgba(5,10,25,.78); align-items: center; justify-content: center; flex-direction: column; gap: 12px; }
+  #ocr-overlay.show { display: flex; }
+  .spinner { width: 36px; height: 36px; border: 3px solid rgba(232,184,75,.25); border-top-color: var(--gold); border-radius: 50%; animation: spin .8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  #ocr-overlay p { font-size: 13px; color: var(--gold); font-weight: 600; }
+  #result-row { display: none; align-items: center; gap: 10px; background: rgba(232,184,75,.1); border: 1.5px solid var(--gold); border-radius: 8px; padding: 10px 14px; margin-top: 14px; }
+  #result-row.show { display: flex; }
+  .result-lbl { font-size: 11px; color: #8899cc; margin-bottom: 2px; }
+  #result-input { border: none; background: transparent; font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; color: var(--gold); letter-spacing: 1px; outline: none; width: 100%; }
+  /* DB match banner */
+  #db-match { display: none; align-items: center; gap: 8px; background: rgba(74,197,120,.12); border: 1.5px solid var(--green); border-radius: 8px; padding: 8px 12px; margin-top: 10px; font-size: 12px; color: #2a8a4e; font-weight: 600; }
+  #db-match.show { display: flex; }
+  #db-match svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  .modal-actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .modal-actions .btn { flex: 1; min-width: 90px; }
+  #file-upload { display: none; }
+  .upload-hint { font-size: 11px; color: #5566aa; text-align: center; margin-top: 10px; cursor: pointer; text-decoration: underline; }
+  .upload-hint:hover { color: #8899cc; }
+
+  /* Checkboxes */
+  .checkbox-row { display: flex; gap: 28px; padding: 12px 14px; border: 1.5px solid var(--border); border-top: none; border-radius: 0 0 4px 4px; flex-wrap: wrap; }
+  .chk-lbl { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; user-select: none; }
+  .chk-lbl input[type="checkbox"] { appearance: none; width: 16px; height: 16px; border: 2px solid var(--navy); border-radius: 3px; cursor: pointer; position: relative; flex-shrink: 0; }
+  .chk-lbl input[type="checkbox"]:checked { background: var(--navy); }
+  .chk-lbl input[type="checkbox"]:checked::after { content: '✓'; position: absolute; color: white; font-size: 11px; top: -1px; left: 1px; }
+
+  /* Tables */
+  .tbl { width: 100%; border-collapse: collapse; border: 1.5px solid var(--border); border-top: none; border-radius: 0 0 4px 4px; overflow: hidden; }
+  .tbl th { background: #e8ecf5; font-size: 11px; font-weight: 700; color: var(--navy); padding: 7px 10px; text-align: left; border-bottom: 1px solid var(--border); letter-spacing: .3px; }
+  .tbl td { border-bottom: 1px solid var(--border); padding: 0; }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl td input { border: none; background: transparent; font-family: 'Barlow', sans-serif; font-size: 14px; color: var(--text); padding: 8px 10px; outline: none; width: 100%; }
+  .tbl td input:focus { background: var(--input-bg); }
+  .unit { font-size: 13px; font-weight: 600; color: var(--muted); padding: 8px 10px; white-space: nowrap; background: #f8f9fc; border-left: 1px solid var(--border); }
+  .wtd { border-right: 1px solid var(--border); }
+  .wtd:last-child { border-right: none; }
+  .add-btn { background: none; border: 1px dashed var(--border); color: var(--muted); font-family: 'Barlow', sans-serif; font-size: 12px; padding: 6px 14px; cursor: pointer; border-radius: 4px; margin-top: 8px; transition: all .15s; }
+  .add-btn:hover { border-color: var(--navy); color: var(--navy); }
+  .remarks-box { border: 1.5px solid var(--border); border-top: none; border-radius: 0 0 4px 4px; }
+  .remarks-box textarea { border: none; font-family: 'Barlow', sans-serif; font-size: 14px; color: var(--text); padding: 12px 14px; outline: none; width: 100%; min-height: 110px; resize: vertical; background: transparent; }
+  .remarks-box textarea:focus { background: var(--input-bg); }
+  .status-row { display: flex; gap: 32px; margin-top: 16px; padding: 12px 14px; background: #f4f6fa; border-radius: 6px; flex-wrap: wrap; }
+  .status-lbl { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; font-weight: 500; }
+  .status-lbl span { font-weight: 700; }
+  .status-lbl input[type="checkbox"] { appearance: none; width: 16px; height: 16px; border: 2px solid var(--navy); border-radius: 3px; cursor: pointer; position: relative; flex-shrink: 0; }
+  .status-lbl input[type="checkbox"]:checked { background: var(--navy); }
+  .status-lbl input[type="checkbox"]:checked::after { content: '✓'; position: absolute; color: white; font-size: 11px; top: -1px; left: 1px; }
+  .sig-area { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+  .sig-box { border-top: 2px solid var(--navy); padding-top: 8px; }
+  .sig-box p { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .sig-box input { border: none; border-bottom: 1px dashed var(--border); font-family: 'Barlow', sans-serif; font-size: 13px; color: var(--text); padding: 4px 0; outline: none; width: 100%; background: transparent; }
+  .form-footer { background: var(--navy); color: #8899cc; text-align: center; padding: 10px; font-size: 11px; letter-spacing: .3px; }
+
+  /* highlight */
+  .cell-scanned { transition: background .5s; background: rgba(74,197,120,.08) !important; }
+  .autofilled { background: rgba(74,197,120,.06) !important; color: #1a6e3a !important; }
+
+  @media (max-width: 600px) {
+    .meta-row, .info-grid, .sig-area { grid-template-columns: 1fr; }
+    .info-cell { border-right: none !important; }
+    .form-header { flex-direction: column; gap: 14px; }
+    .form-body { padding: 16px; }
+    .modal-box { padding: 16px; }
+  }
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    
+    @page {
+      size: A4;
+      margin: 10mm 12mm 10mm 12mm;
+    }
+
+    html, body {
+      background: white !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: 11px !important;
+    }
+
+    /* Versteckte Elemente */
+    .action-bar, .scan-btn, .modal-overlay, .modal-overlay *,
+    .autofill-badge, #install-bar, #dictation-bar,
+    button:not(.no-hide) { display: none !important; }
+
+    /* Diktieren-Buttons in Bemerkung ausblenden */
+    .remarks-box button { display: none !important; }
+
+    /* Seitenrahmen */
+    .page-wrapper { max-width: 100% !important; padding: 0 !important; }
+
+    .form-card {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      border: none !important;
+    }
+
+    /* Header */
+    .form-header {
+      padding: 10px 14px 8px !important;
+      border-bottom: 3px solid #e8b84b !important;
+    }
+    .header-left h1 { font-size: 26px !important; }
+    .header-left p  { font-size: 10px !important; }
+    .logo-badge { padding: 5px 10px !important; }
+    .logo-badge .ec { font-size: 22px !important; }
+    .logo-badge .sub { font-size: 7px !important; }
+    .logo-badge .pp  { font-size: 8px !important; }
+
+    /* Form body */
+    .form-body { padding: 10px 14px 14px !important; }
+
+    /* Meta row (CR-NR / Datum) */
+    .meta-row { margin-bottom: 8px !important; gap: 10px !important; }
+    .meta-row input {
+      font-size: 11px !important;
+      padding: 5px 8px !important;
+      border: 1px solid #c8d0e0 !important;
+      border-radius: 4px !important;
+      background: #f4f6fa !important;
+    }
+    .meta-row label { font-size: 9px !important; margin-bottom: 2px !important; }
+
+    /* Section headers */
+    .section-header {
+      background: #1a2744 !important;
+      color: white !important;
+      padding: 4px 10px !important;
+      font-size: 10px !important;
+      margin-top: 8px !important;
+      border-radius: 3px 3px 0 0 !important;
+    }
+
+    /* Info grid */
+    .info-grid {
+      border: 1px solid #c8d0e0 !important;
+      border-top: none !important;
+    }
+    .info-cell {
+      border-right: 1px solid #c8d0e0 !important;
+      border-bottom: 1px solid #c8d0e0 !important;
+    }
+    .info-cell label { font-size: 8px !important; padding: 3px 8px 1px !important; }
+    .info-cell input, .info-cell select, .info-cell textarea {
+      font-size: 11px !important;
+      padding: 1px 8px 4px !important;
+    }
+
+    /* XRGI row */
+    .xrgi-row { padding: 2px 8px 4px !important; }
+    .xrgi-row input { font-size: 11px !important; }
+
+    /* Dropdown als Text anzeigen */
+    select { appearance: none !important; border: none !important; background: transparent !important; }
+
+    /* Checkbox rows */
+    .checkbox-row { padding: 6px 10px !important; gap: 16px !important; }
+    .chk-lbl { font-size: 10px !important; gap: 5px !important; }
+    .chk-lbl input[type="checkbox"] {
+      width: 12px !important; height: 12px !important;
+      border: 1.5px solid #1a2744 !important;
+    }
+
+    /* Tabellen */
+    .tbl { border: 1px solid #c8d0e0 !important; border-top: none !important; }
+    .tbl th { font-size: 9px !important; padding: 4px 8px !important; background: #e8ecf5 !important; }
+    .tbl td input {
+      font-size: 10px !important;
+      padding: 4px 8px !important;
+    }
+    .unit { font-size: 10px !important; padding: 4px 8px !important; }
+    .wtd { border-right: 1px solid #c8d0e0 !important; }
+    .add-btn { display: none !important; }
+
+    /* Bemerkungsfelder – 4-teilig */
+    .remarks-box {
+      border: 1px solid #c8d0e0 !important;
+      border-top: none !important;
+      page-break-inside: avoid;
+    }
+    .remarks-box textarea {
+      font-size: 10px !important;
+      padding: 5px 10px !important;
+      min-height: 40px !important;
+      border: none !important;
+      background: transparent !important;
+    }
+    /* Bemerkung-Abschnitt-Header */
+    .remarks-box [style*="background:var(--input-bg)"],
+    .remarks-box [style*="background: var(--input-bg)"] {
+      background: #eef1f8 !important;
+      padding: 3px 8px !important;
+      border-bottom: 1px solid #c8d0e0 !important;
+    }
+    .remarks-box span[style*="font-weight:700"] {
+      font-size: 9px !important;
+    }
+
+    /* Status-Zeile */
+    .status-row {
+      padding: 6px 10px !important;
+      gap: 20px !important;
+      margin-top: 8px !important;
+      background: #f4f6fa !important;
+    }
+    .status-lbl { font-size: 10px !important; gap: 5px !important; }
+    .status-lbl input[type="checkbox"] { width: 12px !important; height: 12px !important; }
+
+    /* Unterschriften */
+    .sig-area { margin-top: 14px !important; gap: 16px !important; }
+    .sig-box p { font-size: 9px !important; }
+    .sig-box input { font-size: 11px !important; }
+
+    /* Unterschriften-Canvas */
+    #sig-tech-content { display: block !important; }
+    #sig-tech-name { font-size: 11px !important; }
+    #sig-tech-date { font-size: 10px !important; }
+    #sig-canvas { width: 100% !important; height: 60px !important; border: 1px solid #c8d0e0 !important; border-radius: 4px !important; }
+
+    /* Auftraggeber-Unterschrift – freie Linie */
+    #sig-auftraggeber {
+      border-bottom: 1px solid #1a2744 !important;
+      border: none !important;
+      border-bottom: 1px dashed #c8d0e0 !important;
+      padding: 0 !important;
+      height: 40px !important;
+      display: block !important;
+    }
+
+    /* Footer */
+    .form-footer {
+      background: #1a2744 !important;
+      color: #8899cc !important;
+      font-size: 9px !important;
+      padding: 6px !important;
+    }
+
+    /* Bestätigungs-Text */
+    p[style*="font-style:italic"] { font-size: 10px !important; margin-top: 10px !important; }
+
+    /* Seitenumbruch verhindern wo möglich */
+    .info-grid, .checkbox-row, .tbl, .sig-area { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Foto-Modal -->
+<div class="modal-overlay" id="cam-modal">
+  <div class="modal-box">
+    <div class="modal-title">📷 XRGI-ID erfassen</div>
+    <div class="modal-sub">Foto vom Display oder Typenschild machen, dann Nummer ablesen und eingeben</div>
+
+    <!-- Foto-Vorschau (leer bis Foto gemacht) -->
+    <div id="cam-area" style="display:none;">
+      <img id="cam-preview" alt="" style="width:100%;height:100%;object-fit:contain;display:block;">
+    </div>
+
+    <!-- Eingabefeld immer sichtbar -->
+    <div id="result-row" style="display:flex;">
+      <div style="flex:1;">
+        <div class="result-lbl">XRGI-ID eingeben:</div>
+        <input id="result-input" type="tel" inputmode="numeric" placeholder="z.B. 1196215894"
+          oninput="checkDB(this.value)"
+          style="font-size:22px;font-family:'Barlow Condensed',sans-serif;font-weight:700;
+          color:var(--gold);background:transparent;border:none;outline:none;
+          width:100%;letter-spacing:2px;padding:4px 0;">
+      </div>
+    </div>
+
+    <div id="db-match">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span id="db-match-text"></span>
+    </div>
+
+    <!-- Buttons: Kamera | Galerie | Übernehmen | Schließen -->
+    <div class="modal-actions" style="margin-top:14px;">
+      <label style="flex:1;min-width:90px;">
+        <input type="file" accept="image/*" capture="environment" onchange="handleFile(event)"
+          style="display:none;">
+        <span class="btn btn-secondary" style="display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;">
+          📷 Kamera
+        </span>
+      </label>
+      <label style="flex:1;min-width:90px;">
+        <input type="file" accept="image/*" onchange="handleFile(event)"
+          style="display:none;">
+        <span class="btn btn-outline" style="display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;">
+          🖼 Galerie
+        </span>
+      </label>
+      <button class="btn btn-primary" onclick="confirmScan()" style="flex:1;min-width:90px;">✓ Übernehmen</button>
+      <button class="btn btn-outline" onclick="closeModal()" style="flex:0.5;">✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- App-Install-Banner (Android Chrome) -->
+<div id="install-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:2000;
+  background:var(--navy);color:white;padding:12px 16px;align-items:center;gap:12px;
+  box-shadow:0 -4px 20px rgba(0,0,0,.3);font-family:'Barlow',sans-serif;">
+  <div style="flex:1">
+    <div style="font-weight:700;font-size:14px;">Als App installieren</div>
+    <div style="font-size:11px;color:#8899cc;">Direkt vom Startbildschirm öffnen – auch offline</div>
+  </div>
+  <button onclick="installApp()" style="background:var(--gold);color:var(--navy);border:none;
+    border-radius:6px;padding:8px 16px;font-family:'Barlow',sans-serif;font-weight:700;
+    font-size:13px;cursor:pointer;">Installieren</button>
+  <button onclick="document.getElementById('install-bar').style.display='none'" style="
+    background:transparent;color:#8899cc;border:none;font-size:20px;cursor:pointer;
+    padding:0 4px;line-height:1;">×</button>
+</div>
+
+<!-- Main Form -->
+<div class="page-wrapper">
+  <div class="action-bar">
+    <button class="btn btn-outline" onclick="resetForm()">↺ Zurücksetzen</button>
+    <button class="btn btn-secondary" onclick="window.print()">⎙ Drucken</button>
+    <button class="btn btn-primary" onclick="saveForm()">✓ Speichern</button>
+  </div>
+
+  <div class="form-card">
+    <div class="form-header">
+      <div class="header-left">
+        <h1>EINSATZBERICHT</h1>
+        <p>für EC POWER</p>
+      </div>
+      <div class="logo-badge">
+        <div class="ec">E<span>C</span></div>
+        <span class="sub">POWER</span>
+        <span class="pp">PREMIUM PARTNER</span>
+        <span class="partner">WHSE GmbH & Co. KG</span>
+      </div>
+    </div>
+
+    <div class="form-body">
+      <!-- CR-NR & Datum -->
+      <div class="meta-row">
+        <div>
+          <label style="font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.3px;display:block;margin-bottom:4px;">CR-NR.</label>
+          <input type="text" id="cr-nr" placeholder="z.B. CR-2024-001" style="border:1.5px solid var(--border);border-radius:5px;padding:8px 12px;font-family:'Barlow',sans-serif;font-size:14px;width:100%;outline:none;background:var(--input-bg);">
+        </div>
+        <div>
+          <label style="font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.3px;display:block;margin-bottom:4px;">Datum</label>
+          <input type="date" id="datum" style="border:1.5px solid var(--border);border-radius:5px;padding:8px 12px;font-family:'Barlow',sans-serif;font-size:14px;width:100%;outline:none;background:var(--input-bg);">
+        </div>
+      </div>
+
+      <!-- Standort -->
+      <div class="section-header">Standort & Geräteinformationen</div>
+      <div class="info-grid">
+        <div class="info-cell" style="grid-column:1/2;grid-row:1/4;">
+          <label>XRGI-Standort-Adresse</label>
+          <textarea id="adresse" style="border:none;background:transparent;font-family:'Barlow',sans-serif;font-size:14px;padding:2px 10px 8px;outline:none;width:100%;resize:none;min-height:88px;" placeholder="Straße, PLZ Ort"></textarea>
+        </div>
+        <div class="info-cell" id="xrgi-cell" style="position:relative;overflow:visible;">
+          <label>XRGI-ID</label>
+          <div class="xrgi-row">
+            <input type="tel" inputmode="numeric" id="xrgi-id" placeholder="Tippen zum Suchen…"
+              oninput="onXrgiManual(this.value)" autocomplete="off"
+              onfocus="showSuggestions(this.value)"
+              onblur="setTimeout(hideSuggestions,200)">
+            <label title="Kamera öffnen" style="cursor:pointer;">
+              <input type="file" accept="image/*" capture="environment" onchange="openWithPhoto(event)"
+                style="display:none;">
+              <span class="scan-btn" style="display:flex;align-items:center;gap:4px;">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+                📷
+              </span>
+            </label>
+          </div>
+          <span class="autofill-badge" id="autofill-badge">✓ Aus Datenbank</span>
+          <!-- Autocomplete Dropdown -->
+          <div id="xrgi-suggestions" style="display:none;position:absolute;top:100%;left:0;right:0;
+            background:white;border:1.5px solid var(--border);border-top:none;border-radius:0 0 8px 8px;
+            box-shadow:0 8px 24px rgba(26,39,68,.15);z-index:500;max-height:240px;overflow-y:auto;"></div>
+        </div>
+        <div class="info-cell">
+          <label>Betriebsstunden</label>
+          <input type="number" id="betriebsstunden" placeholder="Std.">
+        </div>
+        <div class="info-cell">
+          <label>Servicetechniker</label>
+          <select id="techniker" onchange="onTechnikerChange()" style="border:none;background:transparent;font-family:'Barlow',sans-serif;font-size:14px;color:var(--text);padding:2px 10px 8px;outline:none;width:100%;cursor:pointer;">
+            <option value="">– bitte wählen –</option>
+            <option value="Marius Biela">Marius Biela</option>
+            <option value="Michael Freischlad">Michael Freischlad</option>
+            <option value="Ali">Ali</option>
+            <option value="Munib">Munib</option>
+            <option value="Thomas Sturm">Thomas Sturm</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Art des Einsatzes -->
+      <div class="section-header" style="margin-top:18px;">Art des Einsatzes</div>
+      <div class="checkbox-row">
+        <label class="chk-lbl"><input type="checkbox" id="chk-gewaehr"> Gewährleistung</label>
+        <label class="chk-lbl"><input type="checkbox" id="chk-reparatur"> Reparatur / Störungsbeseitigung (kostenpflichtig)</label>
+        <label class="chk-lbl"><input type="checkbox" id="chk-wartung"> Wartungsvertrag</label>
+      </div>
+
+      <!-- Ausgeführte Arbeiten -->
+      <div class="section-header" style="margin-top:18px;">Ausgeführte Arbeiten</div>
+      <table class="tbl">
+        <thead><tr>
+          <th style="width:38%">Art der Leistung</th>
+          <th style="width:30%">von / bis</th>
+          <th style="width:18%">Anzahl</th>
+          <th style="width:14%"></th>
+        </tr></thead>
+        <tbody>
+          <tr><td><input type="text" value="Montage/Servicestunden" readonly style="font-weight:600;color:var(--navy)"></td><td><input type="text" placeholder="" id="a-montagevon" oninput="berechneZeiten()"></td><td><input type="text" placeholder="—" id="a-montageanzahl" readonly style="font-weight:700;color:var(--navy);background:var(--input-bg);"></td><td class="unit">Std.</td></tr>
+          <tr><td><input type="text" value="Pausen" readonly style="font-weight:600;color:var(--navy)"></td><td><input type="text" placeholder="" id="a-pausenvon" oninput="berechneZeiten()"></td><td><input type="text" placeholder="—" id="a-pausenanzahl" readonly style="font-weight:700;color:var(--navy);background:var(--input-bg);"></td><td class="unit">Std.</td></tr>
+          <tr><td><input type="text" value="Fahrzeiten" readonly style="font-weight:600;color:var(--navy)"></td><td><input type="text" placeholder="" id="a-fahrzvon"></td><td><input type="number" placeholder="0" id="a-fahrzanzahl" min="0" step="0.25"></td><td class="unit">Std.</td></tr>
+          <tr><td><input type="text" value="Gefahrene km" readonly style="font-weight:600;color:var(--navy)"></td><td><input type="text" placeholder="" id="a-kmvon"></td><td><input type="number" placeholder="0" id="a-kmanzahl" min="0"></td><td class="unit">km</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Warenverbrauch -->
+      <div class="section-header" style="margin-top:18px;">Warenverbrauch</div>
+      <table class="tbl">
+        <thead><tr>
+          <th style="width:22%">Artikel-Nr.</th><th style="width:50%">Bezeichnung</th><th style="width:14%">Menge</th><th style="width:14%;text-align:center">Präf.</th>
+        </tr></thead>
+        <tbody id="waren-body">
+          <tr><td class="wtd"><input type="text" placeholder="Art.-Nr."></td><td class="wtd"><input type="text" placeholder="Bezeichnung"></td><td class="wtd"><input type="number" placeholder="0" min="0"></td><td style="text-align:center"><input type="text" placeholder="–" style="text-align:center"></td></tr>
+          <tr><td class="wtd"><input type="text" placeholder="Art.-Nr."></td><td class="wtd"><input type="text" placeholder="Bezeichnung"></td><td class="wtd"><input type="number" placeholder="0" min="0"></td><td style="text-align:center"><input type="text" placeholder="–" style="text-align:center"></td></tr>
+          <tr><td class="wtd"><input type="text" placeholder="Art.-Nr."></td><td class="wtd"><input type="text" placeholder="Bezeichnung"></td><td class="wtd"><input type="number" placeholder="0" min="0"></td><td style="text-align:center"><input type="text" placeholder="–" style="text-align:center"></td></tr>
+          <tr><td class="wtd"><input type="text" placeholder="Art.-Nr."></td><td class="wtd"><input type="text" placeholder="Bezeichnung"></td><td class="wtd"><input type="number" placeholder="0" min="0"></td><td style="text-align:center"><input type="text" placeholder="–" style="text-align:center"></td></tr>
+        </tbody>
+      </table>
+      <button class="add-btn" onclick="addRow()">+ Zeile hinzufügen</button>
+
+      <!-- Bemerkungen -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:18px;">
+        <div class="section-header" style="margin-top:0;flex:1;">Bemerkungen</div>
+        <button id="mic-btn" onclick="toggleDictation()" title="Spracheingabe" style="
+          display:flex;align-items:center;gap:6px;
+          background:var(--navy);color:white;border:none;border-radius:0 4px 0 0;
+          padding:7px 14px;font-family:'Barlow',sans-serif;font-weight:700;font-size:12px;
+          cursor:pointer;letter-spacing:.4px;transition:all .2s;white-space:nowrap;
+        ">
+          <svg id="mic-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="2" width="6" height="11" rx="3"/>
+            <path d="M5 10a7 7 0 0014 0M12 19v3M9 22h6"/>
+          </svg>
+          <span id="mic-label">Diktieren</span>
+        </button>
+      </div>
+
+      <!-- Diktier-Leiste (zeigt aktives Mikrofon) -->
+      <div id="dictation-bar" style="display:none;align-items:center;gap:10px;padding:8px 14px;
+        background:#fff3e0;border:1.5px solid var(--border);border-top:none;border-bottom:none;">
+        <span style="width:10px;height:10px;background:#e53935;border-radius:50%;display:inline-block;
+          animation:blink .8s ease-in-out infinite;flex-shrink:0;"></span>
+        <span style="font-size:12px;font-weight:600;color:#b71c1c;">Aufnahme läuft…</span>
+        <span id="interim-text" style="font-size:12px;color:#888;font-style:italic;flex:1;
+          overflow:hidden;white-space:nowrap;text-overflow:ellipsis;"></span>
+        <span id="mic-active-field" style="font-size:11px;font-weight:700;color:var(--navy);
+          background:var(--gold);padding:1px 7px;border-radius:8px;"></span>
+      </div>
+
+      <!-- 4-teiliges Bemerkungsfeld -->
+      <div class="remarks-box" style="border-radius:0 0 4px 4px;">
+        <div style="display:grid;grid-template-rows:1fr 1fr 1fr 1fr;border-radius:0 0 4px 4px;">
+
+          <!-- F: Fehler -->
+          <div style="border-bottom:1px solid var(--border);">
+            <div style="display:flex;align-items:center;gap:0;background:var(--input-bg);border-bottom:1px solid var(--border);">
+              <span style="font-weight:700;font-size:12px;color:var(--navy);padding:4px 10px;
+                min-width:130px;letter-spacing:.3px;">F – Fehler</span>
+              <button onclick="activateDictField('bem-fehler', 'F')" style="margin-left:auto;
+                background:transparent;border:none;cursor:pointer;padding:4px 10px;
+                color:var(--muted);font-size:11px;display:flex;align-items:center;gap:4px;"
+                title="Diktieren für Fehler">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0014 0M12 19v3M9 22h6"/></svg>
+                Diktieren
+              </button>
+            </div>
+            <textarea id="bem-fehler" rows="2" placeholder="Fehlerbeschreibung…"
+              style="border:none;width:100%;font-family:'Barlow',sans-serif;font-size:14px;
+              color:var(--text);padding:8px 12px;outline:none;resize:vertical;
+              min-height:52px;background:transparent;"></textarea>
+          </div>
+
+          <!-- U: Ursache -->
+          <div style="border-bottom:1px solid var(--border);">
+            <div style="display:flex;align-items:center;background:var(--input-bg);border-bottom:1px solid var(--border);">
+              <span style="font-weight:700;font-size:12px;color:var(--navy);padding:4px 10px;
+                min-width:130px;letter-spacing:.3px;">U – Ursache</span>
+              <button onclick="activateDictField('bem-ursache', 'U')" style="margin-left:auto;
+                background:transparent;border:none;cursor:pointer;padding:4px 10px;
+                color:var(--muted);font-size:11px;display:flex;align-items:center;gap:4px;"
+                title="Diktieren für Ursache">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0014 0M12 19v3M9 22h6"/></svg>
+                Diktieren
+              </button>
+            </div>
+            <textarea id="bem-ursache" rows="2" placeholder="Ursache…"
+              style="border:none;width:100%;font-family:'Barlow',sans-serif;font-size:14px;
+              color:var(--text);padding:8px 12px;outline:none;resize:vertical;
+              min-height:52px;background:transparent;"></textarea>
+          </div>
+
+          <!-- A: Durchgeführte Arbeiten -->
+          <div style="border-bottom:1px solid var(--border);">
+            <div style="display:flex;align-items:center;background:var(--input-bg);border-bottom:1px solid var(--border);">
+              <span style="font-weight:700;font-size:12px;color:var(--navy);padding:4px 10px;
+                min-width:130px;letter-spacing:.3px;">A – Arbeiten</span>
+              <button onclick="activateDictField('bem-arbeiten', 'A')" style="margin-left:auto;
+                background:transparent;border:none;cursor:pointer;padding:4px 10px;
+                color:var(--muted);font-size:11px;display:flex;align-items:center;gap:4px;"
+                title="Diktieren für Arbeiten">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0014 0M12 19v3M9 22h6"/></svg>
+                Diktieren
+              </button>
+            </div>
+            <textarea id="bem-arbeiten" rows="2" placeholder="Durchgeführte Arbeiten…"
+              style="border:none;width:100%;font-family:'Barlow',sans-serif;font-size:14px;
+              color:var(--text);padding:8px 12px;outline:none;resize:vertical;
+              min-height:52px;background:transparent;"></textarea>
+          </div>
+
+          <!-- S: Sonstiges -->
+          <div>
+            <div style="display:flex;align-items:center;background:var(--input-bg);border-bottom:1px solid var(--border);">
+              <span style="font-weight:700;font-size:12px;color:var(--navy);padding:4px 10px;
+                min-width:130px;letter-spacing:.3px;">S – Sonstiges</span>
+              <button onclick="activateDictField('bem-sonstiges', 'S')" style="margin-left:auto;
+                background:transparent;border:none;cursor:pointer;padding:4px 10px;
+                color:var(--muted);font-size:11px;display:flex;align-items:center;gap:4px;"
+                title="Diktieren für Sonstiges">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0014 0M12 19v3M9 22h6"/></svg>
+                Diktieren
+              </button>
+            </div>
+            <textarea id="bem-sonstiges" rows="2" placeholder="Sonstiges, offene Punkte…"
+              style="border:none;width:100%;font-family:'Barlow',sans-serif;font-size:14px;
+              color:var(--text);padding:8px 12px;outline:none;resize:vertical;
+              min-height:52px;background:transparent;"></textarea>
+          </div>
+
+        </div>
+      </div>
+      <style>
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+        #mic-btn.active { background:#e53935 !important; }
+        #mic-btn.active:hover { background:#c62828 !important; }
+        #mic-btn:hover { background:#253460; }
+      </style>
+
+      <!-- Status -->
+      <div class="status-row">
+        <label class="status-lbl"><input type="checkbox" id="chk-erledigt"><span>Auftrag erfolgreich erledigt</span></label>
+        <label class="status-lbl"><input type="checkbox" id="chk-folge"><span>Folgeeinsatz erforderlich</span><small style="font-weight:400;color:var(--muted);font-size:12px;margin-left:4px;">(offene Punkte unter Bemerkungen)</small></label>
+      </div>
+
+      <p style="font-size:13px;color:var(--muted);margin-top:18px;font-style:italic;">Die Richtigkeit der Angaben wird hiermit bestätigt:</p>
+      <div class="sig-area">
+        <div class="sig-box">
+          <p>Datum / Unterschrift des Auftraggebers</p>
+          <input type="text" id="sig-auftraggeber" placeholder="Name Auftraggeber">
+        </div>
+        <div class="sig-box" id="sig-tech-box">
+          <p>Datum / Unterschrift EC POWER-Servicetechniker</p>
+          <div id="sig-tech-empty" style="font-size:12px;color:var(--muted);font-style:italic;padding:6px 0;">Bitte zuerst Servicetechniker auswählen</div>
+          <div id="sig-tech-content" style="display:none;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <span id="sig-tech-name" style="font-weight:700;font-size:14px;color:var(--navy);"></span>
+              <span id="sig-tech-date" style="font-size:12px;color:var(--muted);"></span>
+            </div>
+            <div style="position:relative;border:1.5px solid var(--border);border-radius:6px;background:#fafbfd;overflow:hidden;">
+              <canvas id="sig-canvas" height="90" style="display:block;width:100%;touch-action:none;cursor:crosshair;"></canvas>
+              <div id="sig-placeholder" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;color:#c8d0e0;font-size:13px;font-style:italic;">&#9997;&#65039; Hier unterschreiben&#8230;</div>
+              <button onclick="clearSig()" style="position:absolute;top:5px;right:5px;background:rgba(255,255,255,.9);border:1px solid var(--border);border-radius:4px;padding:2px 8px;font-family:'Barlow',sans-serif;font-size:11px;color:var(--muted);cursor:pointer;" title="Unterschrift löschen">&#10005;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-footer">
+      WHSE GmbH & Co. KG &nbsp;|&nbsp; Bitzenstraße 11a &nbsp;|&nbsp; 35708 Haiger &nbsp;|&nbsp; Tel. 02773 – 746 219-0 &nbsp;|&nbsp; Mail: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d7beb9b1b897a0bfa4b2f9b3b2">[email&#160;protected]</a>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ─────────────────────────────────────────────────────────────────
+// ANLAGEN-DATENBANK
+// Fahrtzeiten ab Bitzenstraße 11a, 35708 Haiger (gerundet auf 1/4 Std)
+// ─────────────────────────────────────────────────────────────────
+const ANLAGEN_DB = {
+  // ── Bereits vorhanden ─────────────────────────────────────────
+  '1081003103': { adresse: 'Am Richtsberg 12 b\n35039 Marburg',        xrgiTyp: 'XRGI® 6',  km: 79,  fahrtStd: 0.75 },
+  '1011520266': { adresse: 'Ahornweg 5\n61194 Niddatal',               xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1196215894': { adresse: 'Ginsterweg 5\n65428 Rüsselsheim',          xrgiTyp: 'XRGI® 6',  km: 124, fahrtStd: 1.25 },
+
+  // ── Haiger lokal ──────────────────────────────────────────────
+  '1532721920': { adresse: 'Hüttenstraße 18\n35708 Haiger',            xrgiTyp: 'XRGI® 9',  km: 4,   fahrtStd: 0.25 },
+  '1159108250': { adresse: 'Berliner Straße 4\n35708 Haiger',          xrgiTyp: 'XRGI® 6',  km: 3,   fahrtStd: 0.25 },
+
+  // ── Marburg / Umgebung (~75–80 km, ~45 min) ──────────────────
+  '1000711803': { adresse: 'Alte Kasseler Straße 14a\n35037 Marburg',  xrgiTyp: 'XRGI® 6',  km: 77,  fahrtStd: 0.75 },
+  '1756717159': { adresse: 'Am Rain 1\n35039 Marburg',                 xrgiTyp: 'XRGI® 6',  km: 79,  fahrtStd: 0.75 },
+  '1754697073': { adresse: 'Damaschkeweg 12a\n35039 Marburg',          xrgiTyp: 'XRGI® 6',  km: 79,  fahrtStd: 0.75 },
+  '1959534233': { adresse: 'Damaschkeweg 15a\n35039 Marburg',          xrgiTyp: 'XRGI® 6',  km: 79,  fahrtStd: 0.75 },
+
+  // ── Pohlheim (~60 km, ~45 min) ───────────────────────────────
+  '1156585241': { adresse: 'Gießener Straße 94\n35415 Pohlheim',       xrgiTyp: 'XRGI® 6',  km: 60,  fahrtStd: 0.75 },
+
+  // ── Siegen (~40 km, ~30 min) ─────────────────────────────────
+  '1065171102': { adresse: 'Albert-Richartz-Str. 45-75\n57074 Siegen', xrgiTyp: 'XRGI® 20', km: 40,  fahrtStd: 0.5  },
+  '1038478650': { adresse: 'Fischbacherbergstraße 2\n57072 Siegen',    xrgiTyp: 'XRGI® 15', km: 38,  fahrtStd: 0.5  },
+  '1130850649': { adresse: 'Fischbacherbergstraße 2\n57072 Siegen',    xrgiTyp: 'XRGI® 15', km: 38,  fahrtStd: 0.5  },
+  '1800963380': { adresse: 'Fischbacherbergstraße 2\n57072 Siegen',    xrgiTyp: 'XRGI® 20', km: 38,  fahrtStd: 0.5  },
+
+  // ── Korbach / Nordhessen (~90 km, ~60 min) ───────────────────
+  '1325715720': { adresse: 'Zur Marbeck 3\n34497 Korbach-Nieder-Ense', xrgiTyp: 'XRGI® 15', km: 90,  fahrtStd: 1.0  },
+
+  // ── Idstein (~90 km, ~75 min) ────────────────────────────────
+  '1433465440': { adresse: 'Bad Homburger Str. 30-32\n65510 Idstein',  xrgiTyp: 'XRGI® 6',  km: 92,  fahrtStd: 1.25 },
+  '1198056908': { adresse: 'Bad Homburger Str. 46-48\n65510 Idstein',  xrgiTyp: 'XRGI® 6',  km: 92,  fahrtStd: 1.25 },
+
+  // ── Bad Soden (~110 km, ~75 min) ─────────────────────────────
+  '1871541808': { adresse: 'Am Hübenbusch 1\n65812 Bad Soden',         xrgiTyp: 'XRGI® 9',  km: 110, fahrtStd: 1.25 },
+
+  // ── Wiesbaden (~130 km, ~90 min) ─────────────────────────────
+  '1028756452': { adresse: 'Carl-Bender-Str. 23-25\n65197 Wiesbaden',  xrgiTyp: 'XRGI® 6',  km: 130, fahrtStd: 1.5  },
+  '1380527446': { adresse: 'Carl-von-Linde-Str. 18-18d\n65197 Wiesbaden', xrgiTyp: 'XRGI® 20', km: 130, fahrtStd: 1.5 },
+
+  // ── Niddatal (Ahornweg 6 – gleicher Ort wie Ahornweg 5) ──────
+  '1551904443': { adresse: 'Ahornweg 6\n61194 Niddatal',               xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+
+  // ── Hanau (~120 km, ~90 min) ─────────────────────────────────
+  '1534175504': { adresse: 'Am Pedro-Jung-Park 1\n63450 Hanau',        xrgiTyp: 'XRGI® 15', km: 122, fahrtStd: 1.5  },
+
+  // ── Mainz/Kostheim (~140 km, ~90 min) ────────────────────────
+  '1674706435': { adresse: 'Am Sägewerk 2\n55246 Mainz-Kostheim',      xrgiTyp: 'XRGI® 6',  km: 140, fahrtStd: 1.5  },
+
+  // ── Jossgrund (~95 km, ~75 min) ──────────────────────────────
+  '1080838690': { adresse: 'Lohrerstraße 3\n63687 Jossgrund',          xrgiTyp: 'XRGI® 20', km: 95,  fahrtStd: 1.25 },
+
+  // ── Gummersbach (~90 km, ~60 min) ────────────────────────────
+  '1630917508': { adresse: 'Burbachstraße 5\n51643 Gummersbach',       xrgiTyp: 'XRGI® 9',  km: 88,  fahrtStd: 1.0  },
+
+  // ── Attendorn (~100 km, ~75 min) ─────────────────────────────
+  '1571747266': { adresse: 'Hohler Weg 23\n57439 Attendorn',           xrgiTyp: 'XRGI® 15', km: 100, fahrtStd: 1.25 },
+
+  // ── Andernach (~150 km, ~105 min) ────────────────────────────
+  '1035359707': { adresse: 'Buchenstraße 25\n56626 Andernach',         xrgiTyp: 'XRGI® 9',  km: 150, fahrtStd: 1.75 },
+
+  // ── Bad Blankenburg Thüringen (~220 km, ~150 min) ────────────
+  '1036364130': { adresse: 'Esplanade 5-10a\n07422 Bad Blankenburg',   xrgiTyp: 'XRGI® 20', km: 220, fahrtStd: 2.5  },
+  '1086855352': { adresse: 'Esplanade 5-10a\n07422 Bad Blankenburg',   xrgiTyp: 'XRGI® 20', km: 220, fahrtStd: 2.5  },
+
+  // ── Haiger lokal / Umgebung ───────────────────────────────────
+  '1362679442': { adresse: 'Vogelsgesang\n35708 Haiger',                       xrgiTyp: 'XRGI® 20', km: 3,   fahrtStd: 0.25 },
+
+  // ── Lahnau / Solms / Aßlar (~20 km, ~15 min) ─────────────────
+  '2141185300': { adresse: 'Fliederweg 9\n35633 Lahnau-Atzbach',               xrgiTyp: 'XRGI® 6',  km: 20,  fahrtStd: 0.25 },
+  '1414470908': { adresse: 'Bergstraße 9\n35606 Solms',                         xrgiTyp: 'XRGI® 20', km: 20,  fahrtStd: 0.25 },
+  '1135270600': { adresse: 'Loherstraße 16\n35614 Aßlar',                       xrgiTyp: 'XRGI® 20', km: 25,  fahrtStd: 0.25 },
+
+  // ── Heuchelheim / Gießen / Freudenberg (~50–60 km, ~45 min) ──
+  '1805637800': { adresse: 'Auf der langen Furth 14-16\n35452 Heuchelheim',    xrgiTyp: 'XRGI® 20', km: 50,  fahrtStd: 0.75 },
+  '1845663356': { adresse: 'Rathenaustraße 5-7\n35394 Gießen',                  xrgiTyp: 'XRGI® 20', km: 55,  fahrtStd: 0.75 },
+  '1889130480': { adresse: 'Friedenshortstraße 46\n57258 Freudenberg',          xrgiTyp: 'XRGI® 20', km: 55,  fahrtStd: 0.75 },
+
+  // ── Marburg / Wehrda (~78–80 km, ~45 min) ────────────────────
+  '2129766484': { adresse: 'Ernst-Lemmer-Straße 14\n35038 Marburg',            xrgiTyp: 'XRGI® 9',  km: 79,  fahrtStd: 0.75 },
+  '1030002743': { adresse: 'Siemensstraße 10\n35041 Marburg-Wehrda',           xrgiTyp: 'XRGI® 15', km: 78,  fahrtStd: 0.75 },
+  '1754097707': { adresse: 'Friedrich-Ebert-Str. 1-5\n35039 Marburg',         xrgiTyp: 'XRGI® 15', km: 79,  fahrtStd: 0.75 },
+  '2094339350': { adresse: 'Friedrich-Ebert-Str. 4-6\n35039 Marburg',         xrgiTyp: 'XRGI® 9',  km: 79,  fahrtStd: 0.75 },
+
+  // ── Attendorn 2. Anlage (~100 km, ~1h 15min) ─────────────────
+  '2124838564': { adresse: 'Hansastraße 8\n57439 Attendorn',                    xrgiTyp: 'XRGI® 20', km: 100, fahrtStd: 1.25 },
+
+  // ── Wiedenest (~85 km, ~1h) ──────────────────────────────────
+  '1101888564': { adresse: 'Eichendorfstraße 2\n51702 Bergneustadt-Wiedenest', xrgiTyp: 'XRGI® 20', km: 85,  fahrtStd: 1.0  },
+  '1115576100': { adresse: 'Eichendorfstraße 2\n51702 Bergneustadt-Wiedenest', xrgiTyp: 'XRGI® 20', km: 85,  fahrtStd: 1.0  },
+
+  // ── Friedberg / Bad Nauheim (~90–95 km, ~1h) ─────────────────
+  '1758001412': { adresse: 'Feuerbacher Str. 63+65\n61169 Friedberg',          xrgiTyp: 'XRGI® 6',  km: 90,  fahrtStd: 1.0  },
+  '1479938059': { adresse: 'Franz-Grödel-Str. 6\n61231 Bad Nauheim',           xrgiTyp: 'XRGI® 9',  km: 95,  fahrtStd: 1.25 },
+
+  // ── Bad Homburg (~115 km, ~1h 15min) ─────────────────────────
+  '1791155931': { adresse: 'Kaiser-Friedrich-Promenade 8-10\n61348 Bad Homburg', xrgiTyp: 'XRGI® 15', km: 115, fahrtStd: 1.25 },
+
+  // ── Frankfurt (~110–120 km, ~1h 15–30min) ────────────────────
+  '1986218251': { adresse: 'Ferdinand-Scholling-Ring 20+22\n60934 Frankfurt a.M.', xrgiTyp: 'XRGI® 6',  km: 112, fahrtStd: 1.25 },
+  '1858023622': { adresse: 'Ferdinand-Scholling-Ring 24+26\n65934 Frankfurt a.M.', xrgiTyp: 'XRGI® 6',  km: 112, fahrtStd: 1.25 },
+  '1176252462': { adresse: 'Ferdinand-Scholling-Ring 28\n65934 Frankfurt a.M.',     xrgiTyp: 'XRGI® 6',  km: 112, fahrtStd: 1.25 },
+  '1062925904': { adresse: 'Franz-Diehl-Weg 9-11\n65934 Frankfurt a.M.',           xrgiTyp: 'XRGI® 20', km: 112, fahrtStd: 1.25 },
+  '1077610438': { adresse: 'Arolser Straße 11\n60389 Frankfurt a.M.',              xrgiTyp: 'XRGI® 20', km: 110, fahrtStd: 1.25 },
+  '1298879235': { adresse: 'Grethenweg 120\n60598 Frankfurt-Sachsenhausen',        xrgiTyp: 'XRGI® 6',  km: 118, fahrtStd: 1.5  },
+
+  // ── Wiesbaden 3. Anlage (~130 km, ~1h 30min) ─────────────────
+  '1572627040': { adresse: 'Von-Frerichs-Straße 8\n65191 Wiesbaden',           xrgiTyp: 'XRGI® 15', km: 130, fahrtStd: 1.5  },
+
+  // ── Laufach (~120 km, ~1h 30min) ─────────────────────────────
+  '1653902819': { adresse: 'Friedrich-Wilhelm-Düker-Str. 8\n63846 Laufach',    xrgiTyp: 'XRGI® 20', km: 120, fahrtStd: 1.5  },
+
+  // ── Haiger lokal ──────────────────────────────────────────────
+  '1292878908': { adresse: 'Schlesische Straße 7\n35708 Haiger',                   xrgiTyp: 'XRGI® 20', km: 3,   fahrtStd: 0.25 },
+  '1297312610': { adresse: 'Schlesische Straße 7\n35708 Haiger',                   xrgiTyp: 'XRGI® 20', km: 3,   fahrtStd: 0.25 },
+  '1950672536': { adresse: 'Bitzenstraße 11a\n35708 Haiger',                       xrgiTyp: 'XRGI® 20', km: 1,   fahrtStd: 0.25 },
+  '1941614060': { adresse: 'Bitzenstraße 11e\n35708 Haiger',                       xrgiTyp: 'XRGI® 15', km: 1,   fahrtStd: 0.25 },
+  '1426250529': { adresse: 'Löhrstraße 8\n35708 Haiger',                           xrgiTyp: 'XRGI® 15', km: 2,   fahrtStd: 0.25 },
+
+  // ── Bischoffen / Biebertal (~25–45 km, ~15–45 min) ───────────
+  '1937498613': { adresse: 'Königsberger Str. 29\n35649 Bischoffen',               xrgiTyp: 'XRGI® 20', km: 25,  fahrtStd: 0.5  },
+  '1501060922': { adresse: 'In der Ruppertsbach\n35444 Biebertal',                 xrgiTyp: 'XRGI® 9',  km: 45,  fahrtStd: 0.75 },
+
+  // ── Lollar / Heuchelheim-Umgebung (~55 km, ~45 min) ──────────
+  '1077801029': { adresse: 'Am Steinörrn\n35457 Lollar-Salzböden',                 xrgiTyp: 'XRGI® 20', km: 55,  fahrtStd: 0.75 },
+  '1083143556': { adresse: 'Am Steinörrn\n35457 Lollar-Salzböden',                 xrgiTyp: 'XRGI® 20', km: 55,  fahrtStd: 0.75 },
+
+  // ── Rosenheim (Westerwald) (~65 km, ~1h) ─────────────────────
+  '1070241232': { adresse: 'Bergstraße 40\n57520 Rosenheim',                       xrgiTyp: 'XRGI® 20', km: 65,  fahrtStd: 1.0  },
+
+  // ── Wiehl / Gummersbach (~80–90 km, ~1h) ─────────────────────
+  '1996520252': { adresse: 'In der Landwehr 1\n51674 Wiehl',                       xrgiTyp: 'XRGI® 15', km: 80,  fahrtStd: 1.0  },
+  '1142298809': { adresse: 'Koversteiner Weg 20\n51647 Gummersbach',               xrgiTyp: 'XRGI® 20', km: 90,  fahrtStd: 1.0  },
+  '1239422564': { adresse: 'Koversteiner Weg 20\n51647 Gummersbach',               xrgiTyp: 'XRGI® 20', km: 90,  fahrtStd: 1.0  },
+
+  // ── Willingen (~90 km, ~1h) ───────────────────────────────────
+  '1925295206': { adresse: 'Kampweg 14\n34508 Willingen',                          xrgiTyp: 'XRGI® 15', km: 90,  fahrtStd: 1.0  },
+
+  // ── Lennestadt / Schmallenberg (~110 km, ~1h 15min) ──────────
+  '1066906602': { adresse: 'Haus Hilmeke 1\n57368 Lennestadt',                     xrgiTyp: 'XRGI® 20', km: 110, fahrtStd: 1.25 },
+  '1327601625': { adresse: 'Rimberg 1\n57392 Schmallenberg',                       xrgiTyp: 'XRGI® 20', km: 112, fahrtStd: 1.25 },
+  '1911016534': { adresse: 'Ohlenbach 10\n57392 Schmallenberg',                    xrgiTyp: 'XRGI® 20', km: 112, fahrtStd: 1.25 },
+
+  // ── Frankfurt weitere (~110–120 km, ~1h 15–30min) ────────────
+  '1634454405': { adresse: 'Grethenweg 69-73\n60598 Frankfurt-Sachsenhausen',      xrgiTyp: 'XRGI® 20', km: 118, fahrtStd: 1.5  },
+  '1754721635': { adresse: 'Humboldtstraße 17\n60318 Frankfurt',                   xrgiTyp: 'XRGI® 6',  km: 110, fahrtStd: 1.25 },
+
+  // ── Taunusstein (~115 km, ~1h 15min) ─────────────────────────
+  '1516836600': { adresse: 'Grillparzer Str. 8+10\n65232 Taunusstein',             xrgiTyp: 'XRGI® 6',  km: 115, fahrtStd: 1.25 },
+  '1702269285': { adresse: 'Grillparzer Str. 12\n65232 Taunusstein',               xrgiTyp: 'XRGI® 6',  km: 115, fahrtStd: 1.25 },
+  '1012335298': { adresse: 'Grillparzer Str. 16\n65232 Taunusstein',               xrgiTyp: 'XRGI® 6',  km: 115, fahrtStd: 1.25 },
+  '1015083142': { adresse: 'Grillparzer Str. 18-20\n65232 Taunusstein',            xrgiTyp: 'XRGI® 6',  km: 115, fahrtStd: 1.25 },
+
+  // ── Hattersheim / Wiesbaden-Idstein (~120–130 km, ~1h 30min) ─
+  '1439621775': { adresse: 'Am Markt 1\n65795 Hattersheim',                        xrgiTyp: 'XRGI® 6',  km: 125, fahrtStd: 1.5  },
+  '1859877169': { adresse: 'Idsteiner Str. 33+33a\n65193 Wiesbaden',               xrgiTyp: 'XRGI® 6',  km: 130, fahrtStd: 1.5  },
+
+  // ── Kassel / Winterberg (~120 km, ~1h 30min) ─────────────────
+  '1691530439': { adresse: 'Vor dem Osterholz 7\n34123 Kassel',                    xrgiTyp: 'XRGI® 20', km: 120, fahrtStd: 1.5  },
+  '1357758572': { adresse: 'Am Waltenberg 65\n59955 Winterberg',                   xrgiTyp: 'XRGI® 20', km: 120, fahrtStd: 1.5  },
+  '1531094875': { adresse: 'Am Waltenberg 65\n59955 Winterberg',                   xrgiTyp: 'XRGI® 20', km: 120, fahrtStd: 1.5  },
+
+  // ── Osthofen (~170 km, ~2h) ───────────────────────────────────
+  '1134486650': { adresse: 'Isarstraße 5\n67574 Osthofen',                         xrgiTyp: 'XRGI® 20', km: 170, fahrtStd: 2.0  },
+  '1274600103': { adresse: 'Isarstraße 5\n67574 Osthofen',                         xrgiTyp: 'XRGI® 20', km: 170, fahrtStd: 2.0  },
+
+  // ── Haiger / Dillenburg lokal (~1–15 km, 15 min) ─────────────
+  '1103853992': { adresse: 'Auf der Hofstedt 7\n35708 Haiger',                    xrgiTyp: 'XRGI® 9',  km: 4,   fahrtStd: 0.25 },
+  '1742565301': { adresse: 'Hüttenstraße 36\n35708 Haiger',                       xrgiTyp: 'XRGI® 20', km: 3,   fahrtStd: 0.25 },
+  '1744417155': { adresse: 'Hüttenstraße 36\n35708 Haiger',                       xrgiTyp: 'XRGI® 20', km: 3,   fahrtStd: 0.25 },
+  '1843096501': { adresse: 'Allendorfer Straße 14-18\n35708 Haiger',              xrgiTyp: 'XRGI® 6',  km: 3,   fahrtStd: 0.25 },
+  '1061197750': { adresse: 'Maibachstraße 9\n35683 Dillenburg',                   xrgiTyp: 'XRGI® 20', km: 15,  fahrtStd: 0.25 },
+
+  // ── Hirzenhain / Gedern (~80–90 km, ~1h) ─────────────────────
+  '1983856042': { adresse: 'Nidderstraße 14\n63697 Hirzenhain',                   xrgiTyp: 'XRGI® 15', km: 80,  fahrtStd: 1.0  },
+  '1540125300': { adresse: 'Am Rathaus 1\n63688 Gedern',                          xrgiTyp: 'XRGI® 9',  km: 88,  fahrtStd: 1.0  },
+
+  // ── Friedberg 2. Anlage (~90 km, ~1h) ────────────────────────
+  '1549228561': { adresse: 'Kirchgasse 2\n61169 Friedberg',                       xrgiTyp: 'XRGI® 9',  km: 90,  fahrtStd: 1.0  },
+
+  // ── Nümbrecht (~85 km, ~1h) ──────────────────────────────────
+  '1831411427': { adresse: 'Krähenbusch 12\n51588 Nümbrecht',                    xrgiTyp: 'XRGI® 6',  km: 85,  fahrtStd: 1.0  },
+
+  // ── Attendorn-Niederhelden (~105 km, ~1h 15min) ───────────────
+  '1142708832': { adresse: 'Repetalstraße 245\n57439 Attendorn-Niederhelden',     xrgiTyp: 'XRGI® 9',  km: 105, fahrtStd: 1.25 },
+  '1229036155': { adresse: 'Repetalstraße 245\n57439 Attendorn-Niederhelden',     xrgiTyp: 'XRGI® 20', km: 105, fahrtStd: 1.25 },
+
+  // ── Lennestadt weitere (~110 km, ~1h 15min) ──────────────────
+  '1028588013': { adresse: 'Winterberger Straße 36\n57368 Lennestadt',            xrgiTyp: 'XRGI® 20', km: 110, fahrtStd: 1.25 },
+  '2059489709': { adresse: 'Wiesenkamp 17\n57368 Lennestadt',                     xrgiTyp: 'XRGI® 6',  km: 110, fahrtStd: 1.25 },
+
+  // ── Bad Nauheim 2. Anlage (~95 km, ~1h 15min) ────────────────
+  '1248023200': { adresse: 'Ludwigstraße 11\n61231 Bad Nauheim',                  xrgiTyp: 'XRGI® 20', km: 95,  fahrtStd: 1.25 },
+
+  // ── Idstein weitere (~92 km, ~1h 15min) ──────────────────────
+  '1427836761': { adresse: 'Kelkheimer Weg 1\n65510 Idstein',                     xrgiTyp: 'XRGI® 6',  km: 92,  fahrtStd: 1.25 },
+  '1838277424': { adresse: 'Kelkheimer Weg 2+4\n65510 Idstein',                   xrgiTyp: 'XRGI® 6',  km: 92,  fahrtStd: 1.25 },
+  '1959908512': { adresse: 'Kelkheimer Weg 3+5\n65510 Idstein',                   xrgiTyp: 'XRGI® 6',  km: 92,  fahrtStd: 1.25 },
+  '1568777198': { adresse: 'Kronberger Str. 57-59\n65510 Idstein',                xrgiTyp: 'XRGI® 6',  km: 92,  fahrtStd: 1.25 },
+  '1156046253': { adresse: 'Königsteiner Str. 67-69\n65510 Idstein',              xrgiTyp: 'XRGI® 6',  km: 92,  fahrtStd: 1.25 },
+
+  // ── Frankfurt weitere (~110–115 km, ~1h 15–30min) ────────────
+  '1059838303': { adresse: 'Kölner Straße 19\n60327 Frankfurt',                   xrgiTyp: 'XRGI® 6',  km: 110, fahrtStd: 1.25 },
+
+  // ── Oberursel (~120 km, ~1h 30min) ───────────────────────────
+  '1847997895': { adresse: 'Kronberger Str. 8-16\n61440 Oberursel',              xrgiTyp: 'XRGI® 9',  km: 120, fahrtStd: 1.5  },
+
+  // ── Hofheim am Taunus (~125 km, ~1h 30min) ───────────────────
+  '1084993456': { adresse: 'Mainzer Straße 2\n65719 Hofheim am Taunus',           xrgiTyp: 'XRGI® 6',  km: 125, fahrtStd: 1.5  },
+
+  // ── Heusenstamm (~120 km, ~1h 30min) ─────────────────────────
+  '1025349554': { adresse: 'Industriestraße 2\n63150 Heusenstamm',               xrgiTyp: 'XRGI® 20', km: 120, fahrtStd: 1.5  },
+
+  // ── Mainz-Kostheim weitere (~140 km, ~1h 30min) ───────────────
+  '1866000483': { adresse: 'Kostheimer Landstr. 17a+17b\n55246 Mainz-Kostheim',  xrgiTyp: 'XRGI® 6',  km: 140, fahrtStd: 1.5  },
+  '1512478719': { adresse: 'Kostheimer Landstraße 17+19\n55246 Mainz-Kostheim',  xrgiTyp: 'XRGI® 6',  km: 140, fahrtStd: 1.5  },
+  '1023369313': { adresse: 'Kostheimer Landstraße 21+23\n55246 Mainz-Kostheim',  xrgiTyp: 'XRGI® 6',  km: 140, fahrtStd: 1.5  },
+  '2060032903': { adresse: 'Steinerne Straße 20\n55246 Mainz-Kostheim',          xrgiTyp: 'XRGI® 20', km: 140, fahrtStd: 1.5  },
+
+  // ── Haiger lokal ──────────────────────────────────────────────
+  '1789595616': { adresse: 'Schmidthütte 4\n35708 Haiger',                        xrgiTyp: 'XRGI® 20', km: 4,   fahrtStd: 0.25 },
+
+  // ── Eschenburg / Herborn (~20–30 km, ~15–30 min) ─────────────
+  '1561367702': { adresse: 'Nassauer Straße 13\n35713 Eschenburg',                xrgiTyp: 'XRGI® 20', km: 20,  fahrtStd: 0.25 },
+  '1059458822': { adresse: 'Am Kirchberg 11\n35745 Herborn',                      xrgiTyp: 'XRGI® 9',  km: 28,  fahrtStd: 0.5  },
+
+  // ── Kirchhain / Marburg (~65–80 km, ~45 min) ─────────────────
+  '1812772330': { adresse: 'Borngasse 3-5\n35274 Kirchhain',                      xrgiTyp: 'XRGI® 9',  km: 65,  fahrtStd: 0.75 },
+  '1958781703': { adresse: 'Gisselberger Str. 47\n35037 Marburg',                 xrgiTyp: 'XRGI® 6',  km: 77,  fahrtStd: 0.75 },
+
+  // ── Limburg (~55 km, ~45 min) ────────────────────────────────
+  '1260930595': { adresse: 'Brunnenstraße 5\n65551 Limburg an der Lahn',          xrgiTyp: 'XRGI® 20', km: 55,  fahrtStd: 0.75 },
+
+  // ── Friedberg weitere (~90 km, ~1h) ──────────────────────────
+  '1915805436': { adresse: 'Grüner Weg 3\n61169 Friedberg',                       xrgiTyp: 'XRGI® 6',  km: 90,  fahrtStd: 1.0  },
+  '1628931537': { adresse: 'Parkstraße 11\n61231 Bad Nauheim',                    xrgiTyp: 'XRGI® 6',  km: 95,  fahrtStd: 1.25 },
+
+  // ── Bad Vilbel (~105 km, ~1h 15min) ──────────────────────────
+  '1818481522': { adresse: 'Röntgenstraße 1+1a\n61118 Bad Vilbel',                xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1348653128': { adresse: 'Röntgenstraße 2+4+6\n61118 Bad Vilbel',               xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1427802897': { adresse: 'Röntgenstraße 3a+3b\n61118 Bad Vilbel',               xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1402343771': { adresse: 'Röntgenstraße 5+5a\n61118 Bad Vilbel',                xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1488110214': { adresse: 'Röntgenstraße 7+7a\n61118 Bad Vilbel',                xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+
+  // ── Frankfurt weitere (~110–115 km, ~1h 15–30min) ────────────
+  '1098421587': { adresse: 'Wächtersbacher Str. 91\n60386 Frankfurt-Fechenheim',  xrgiTyp: 'XRGI® 20', km: 115, fahrtStd: 1.5  },
+  '1254416990': { adresse: 'Schlossborner Str. 71\n60326 Frankfurt',              xrgiTyp: 'XRGI® 20', km: 112, fahrtStd: 1.25 },
+
+  // ── Idstein weitere (~92 km, ~1h 15min) ──────────────────────
+  '1136803478': { adresse: 'Niedernhausener Weg 12\n65510 Idstein',               xrgiTyp: 'XRGI® 6',  km: 92,  fahrtStd: 1.25 },
+  '1036656151': { adresse: 'Niedernhausener Weg 2\n65510 Idstein',                xrgiTyp: 'XRGI® 6',  km: 92,  fahrtStd: 1.25 },
+  '1004429207': { adresse: 'Niedernhausener Weg 4+6\n65510 Idstein',              xrgiTyp: 'XRGI® 6',  km: 92,  fahrtStd: 1.25 },
+  '1317456009': { adresse: 'Niedernhausener Weg 8+10\n65510 Idstein',             xrgiTyp: 'XRGI® 6',  km: 92,  fahrtStd: 1.25 },
+
+  // ── Wiesbaden weitere (~130 km, ~1h 30min) ───────────────────
+  '1912754509': { adresse: 'Prinzessin-Elisabeth-Str. 5\n65193 Wiesbaden',        xrgiTyp: 'XRGI® 6',  km: 130, fahrtStd: 1.5  },
+  '1538121526': { adresse: 'Rosselstraße 26\n65193 Wiesbaden',                    xrgiTyp: 'XRGI® 6',  km: 130, fahrtStd: 1.5  },
+  '1807493564': { adresse: 'Rudolfstraße 6\n65197 Wiesbaden',                     xrgiTyp: 'XRGI® 6',  km: 130, fahrtStd: 1.5  },
+
+  // ── Bad Soden weitere (~110 km, ~1h 15min) ───────────────────
+  '2050602066': { adresse: 'Robert-Stolz-Straße 1\n65812 Bad Soden am Taunus',    xrgiTyp: 'XRGI® 20', km: 110, fahrtStd: 1.25 },
+
+  // ── Kassel weitere (~120 km, ~1h 30min) ──────────────────────
+  '2014586950': { adresse: 'Wolfhager Straße 425\n34128 Kassel',                  xrgiTyp: 'XRGI® 6',  km: 120, fahrtStd: 1.5  },
+
+  // ── Darmstadt (~145 km, ~1h 45min) ───────────────────────────
+  '1260513253': { adresse: 'Neckarstraße 22\n64283 Darmstadt',                    xrgiTyp: 'XRGI® 20', km: 145, fahrtStd: 1.75 },
+
+  // ── Bad Vilbel Siemensstraße (~105 km, ~1h 15min) ─────────────
+  '1004927998': { adresse: 'Siemensstraße 1+3\n61118 Bad Vilbel',                 xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1810686058': { adresse: 'Siemensstraße 11+13\n61118 Bad Vilbel',               xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1738283841': { adresse: 'Siemensstraße 12\n61118 Bad Vilbel',                  xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1708394792': { adresse: 'Siemensstraße 14\n61118 Bad Vilbel',                  xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1424835590': { adresse: 'Siemensstraße 15+17\n61118 Bad Vilbel',               xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1382791861': { adresse: 'Siemensstraße 16-18\n61118 Bad Vilbel',               xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '2093760676': { adresse: 'Siemensstraße 19\n61118 Bad Vilbel',                  xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '2137628067': { adresse: 'Siemensstraße 2\n61118 Bad Vilbel',                   xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1528923006': { adresse: 'Siemensstraße 4+6\n61118 Bad Vilbel',                 xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1000710126': { adresse: 'Siemensstraße 5\n61118 Bad Vilbel',                   xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1053585004': { adresse: 'Siemensstraße 7+9\n61118 Bad Vilbel',                 xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+  '1336155332': { adresse: 'Siemensstraße 8\n61118 Bad Vilbel',                   xrgiTyp: 'XRGI® 6',  km: 105, fahrtStd: 1.25 },
+
+  // ── Solms (SPI) (~20 km, ~15 min) ────────────────────────────
+  '1075253453': { adresse: 'Solmser Gewerbepark 16\n35606 Solms',                 xrgiTyp: 'XRGI® 20', km: 20,  fahrtStd: 0.25 },
+  '1146843627': { adresse: 'Solmser Gewerbepark 16\n35606 Solms',                 xrgiTyp: 'XRGI® 20', km: 20,  fahrtStd: 0.25 },
+
+  // ── Siegen weitere (~38–40 km, ~30 min) ──────────────────────
+  '1467452293': { adresse: 'Marienhütte 49\n57080 Siegen',                        xrgiTyp: 'XRGI® 20', km: 40,  fahrtStd: 0.5  },
+  '1472401030': { adresse: 'Marienhütte 49\n57080 Siegen',                        xrgiTyp: 'XRGI® 20', km: 40,  fahrtStd: 0.5  },
+
+  // ── Hungen (~70 km, ~45 min) ─────────────────────────────────
+  '1620516493': { adresse: 'Stettiner Straße\n35410 Hungen',                      xrgiTyp: 'XRGI® 9',  km: 70,  fahrtStd: 0.75 },
+
+  // ── Marburg weitere (~79 km, ~45 min) ────────────────────────
+  '2046270304': { adresse: 'St.-Martin-Str. 21\n35039 Marburg',                   xrgiTyp: 'XRGI® 6',  km: 79,  fahrtStd: 0.75 },
+  '1209997160': { adresse: 'St.-Martin-Str. 9-13\n35039 Marburg',                 xrgiTyp: 'XRGI® 9',  km: 79,  fahrtStd: 0.75 },
+  '1351138485': { adresse: 'Sudetenstraße 42a+b\n35039 Marburg',                  xrgiTyp: 'XRGI® 9',  km: 79,  fahrtStd: 0.75 },
+
+  // ── Attendorn weitere (~100 km, ~1h 15min) ───────────────────
+  '1151299532': { adresse: 'Kölner Str. 46a\n57439 Attendorn',                    xrgiTyp: 'XRGI® 15', km: 100, fahrtStd: 1.25 },
+  '1488330566': { adresse: 'Bieketurmstraße 9\n57439 Attendorn',                  xrgiTyp: 'XRGI® 20', km: 100, fahrtStd: 1.25 },
+
+  // ── Lennestadt weitere (~110 km, ~1h 15min) ──────────────────
+  '1418219870': { adresse: 'Hochstraße 16\n57368 Lennestadt',                     xrgiTyp: 'XRGI® 6',  km: 110, fahrtStd: 1.25 },
+
+  // ── Wiesbaden weitere (~130 km, ~1h 30min) ───────────────────
+  '2104015133': { adresse: 'Steubenstraße 11+11b\n65193 Wiesbaden',               xrgiTyp: 'XRGI® 6',  km: 130, fahrtStd: 1.5  },
+  '1296325993': { adresse: 'Steubenstraße 20\n65189 Wiesbaden',                   xrgiTyp: 'XRGI® 6',  km: 130, fahrtStd: 1.5  },
+
+  // ── Düsseldorf (~190 km, ~2h) ────────────────────────────────
+  '1784918641': { adresse: 'Am Schönenkamp\n40599 Düsseldorf',                    xrgiTyp: 'XRGI® 20', km: 190, fahrtStd: 2.0  },
+
+  // ── Monheim am Rhein (~175 km, ~2h) ──────────────────────────
+  '1286849688': { adresse: 'Alte Schulstraße 26\n40789 Monheim am Rhein',         xrgiTyp: 'XRGI® 20', km: 175, fahrtStd: 2.0  },
+
+  // ── Haiger lokal ──────────────────────────────────────────────
+  '1969430400': { adresse: 'Ringstraße 15\n35708 Haiger',                         xrgiTyp: 'XRGI® 6',  km: 2,   fahrtStd: 0.25 },
+
+  // ── Ehringshausen (~15 km, ~15 min) ──────────────────────────
+  '2030036025': { adresse: 'Stegwiese 27a\n35630 Ehringshausen',                  xrgiTyp: 'XRGI® 6',  km: 15,  fahrtStd: 0.25 },
+
+  // ── Cölbe / Marburg (~80 km, ~45 min) ────────────────────────
+  '1819584160': { adresse: 'Lahnstraße 8\n35091 Cölbe',                           xrgiTyp: 'XRGI® 6',  km: 80,  fahrtStd: 0.75 },
+
+  // ── Friedberg Zuckerfabrik (~90 km, ~1h) ─────────────────────
+  '1403926848': { adresse: 'Zur Zuckerfabrik 11+12\n61169 Friedberg',             xrgiTyp: 'XRGI® 6',  km: 90,  fahrtStd: 1.0  },
+  '1429118816': { adresse: 'Zur Zuckerfabrik 5\n61169 Friedberg',                 xrgiTyp: 'XRGI® 6',  km: 90,  fahrtStd: 1.0  },
+  '1487819803': { adresse: 'Zur Zuckerfabrik 6\n61169 Friedberg',                 xrgiTyp: 'XRGI® 6',  km: 90,  fahrtStd: 1.0  },
+  '1018524471': { adresse: 'Zur Zuckerfabrik 7+8\n61169 Friedberg',               xrgiTyp: 'XRGI® 6',  km: 90,  fahrtStd: 1.0  },
+  '1188566806': { adresse: 'Zur Zuckerfabrik 9+10\n61169 Friedberg',              xrgiTyp: 'XRGI® 6',  km: 90,  fahrtStd: 1.0  },
+
+  // ── Wiehl weitere (~80 km, ~1h) ──────────────────────────────
+  '2087121159': { adresse: 'Pfaffenberg 15\n51674 Wiehl',                         xrgiTyp: 'XRGI® 20', km: 80,  fahrtStd: 1.0  },
+
+  // ── Idstein weitere (~92 km, ~1h 15min) ──────────────────────
+  '1004991938': { adresse: 'Wiesbadener Str. 6-8 / Rodergasse 20\n65510 Idstein', xrgiTyp: 'XRGI® 6',  km: 92,  fahrtStd: 1.25 },
+
+  // ── Schmallenberg weitere (~112 km, ~1h 15min) ───────────────
+  '1170652264': { adresse: 'Zum Hallenberg 60\n57392 Schmallenberg',              xrgiTyp: 'XRGI® 20', km: 112, fahrtStd: 1.25 },
+
+  // ── Wiesbaden weitere (~130 km, ~1h 30min) ───────────────────
+  '1185297113': { adresse: 'Waldstraße 10\n65207 Wiesbaden',                      xrgiTyp: 'XRGI® 20', km: 130, fahrtStd: 1.5  },
+
+  // ── Diemelstadt (~135 km, ~1h 30min) ─────────────────────────
+  '1020217941': { adresse: 'Dehausen 42\n34474 Diemelstadt',                      xrgiTyp: 'XRGI® 15', km: 135, fahrtStd: 1.5  },
+};
+
+// ═══════════════════════════════════════════════════════════════
+// INITIALISIERUNG – alles nach DOM-Ready
+// ═══════════════════════════════════════════════════════════════
+window.addEventListener('load', function() {
+
+  // ── 1. Heutiges Datum setzen ──────────────────────────────────
+  const today = new Date();
+  const pad = n => String(n).padStart(2,'0');
+  const isoDate = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
+  const datEl = document.getElementById('datum');
+  if (datEl) datEl.value = isoDate;
+
+  // ── 2. Gespeicherte Daten laden ───────────────────────────────
+  try {
+    const s = JSON.parse(localStorage.getItem('eb_save') || 'null');
+    if (s) {
+      if (s.crNr)    document.getElementById('cr-nr').value = s.crNr;
+      if (s.adresse) document.getElementById('adresse').value = s.adresse;
+      if (s.xrgiId)  { document.getElementById('xrgi-id').value = s.xrgiId; onXrgiManual(s.xrgiId); }
+      if (s.betrieb) document.getElementById('betriebsstunden').value = s.betrieb;
+      if (s.tech)    { document.getElementById('techniker').value = s.tech; onTechnikerChange(); }
+    }
+  } catch(e) {}
+
+  // ── 3. Techniker-Dropdown Event ───────────────────────────────
+  const techSel = document.getElementById('techniker');
+  if (techSel) techSel.addEventListener('change', onTechnikerChange);
+
+});
+
+// ═══════════════════════════════════════════════════════════════
+// DATENBANK LOOKUP & AUTO-FILL
+// ═══════════════════════════════════════════════════════════════
+function applyDBEntry(id) {
+  const entry = ANLAGEN_DB[id.trim()];
+  if (!entry) return false;
+  document.getElementById('adresse').value = entry.adresse;
+  document.getElementById('a-fahrzanzahl').value = entry.fahrtStd;
+  document.getElementById('a-kmanzahl').value = entry.km;
+  ['adresse','a-fahrzanzahl','a-kmanzahl'].forEach(fid => {
+    const el = document.getElementById(fid);
+    if (el) { el.classList.add('autofilled'); setTimeout(() => el.classList.remove('autofilled'), 3000); }
+  });
+  document.getElementById('autofill-badge').classList.add('show');
+  const cell = document.getElementById('xrgi-cell');
+  if (cell) { cell.style.background = 'rgba(74,197,120,.06)'; setTimeout(() => cell.style.background = '', 3000); }
+  return true;
+}
+
+function onXrgiManual(val) {
+  if (!applyDBEntry(val)) document.getElementById('autofill-badge').classList.remove('show');
+}
+
+function checkDB(val) {
+  const entry = ANLAGEN_DB[val.trim()];
+  const banner = document.getElementById('db-match');
+  if (entry) {
+    document.getElementById('db-match-text').textContent =
+      `✓ Anlage: ${entry.adresse.replace('\n',', ')} – ${entry.km} km, ${entry.fahrtStd*60} min`;
+    banner.classList.add('show');
+  } else {
+    banner.classList.remove('show');
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// AUTOCOMPLETE XRGI-ID SUCHE
+// ═══════════════════════════════════════════════════════════════
+function showSuggestions(val) {
+  const box = document.getElementById('xrgi-suggestions');
+  if (!box) return;
+  const q = val.trim();
+  if (q.length < 2) { box.style.display = 'none'; return; }
+
+  const matches = Object.entries(ANLAGEN_DB).filter(([id, e]) =>
+    id.includes(q) || e.adresse.toLowerCase().includes(q.toLowerCase())
+  ).slice(0, 8);
+
+  if (!matches.length) { box.style.display = 'none'; return; }
+
+  box.innerHTML = matches.map(([id, e]) => {
+    const adr = e.adresse.replace('\n', ', ');
+    const highlight = id.replace(q, `<strong>${q}</strong>`);
+    return `<div onclick="selectSuggestion('${id}')"
+      style="padding:9px 12px;cursor:pointer;border-bottom:1px solid var(--border);
+      transition:background .1s;"
+      onmouseover="this.style.background='#eef1f8'"
+      onmouseout="this.style.background=''"
+    >
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;
+        color:var(--navy);letter-spacing:.5px;">${highlight}</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:1px;">${adr} &nbsp;·&nbsp; ${e.km} km / ${e.fahrtStd*60} min</div>
+    </div>`;
+  }).join('');
+
+  box.style.display = 'block';
+}
+
+function hideSuggestions() {
+  const box = document.getElementById('xrgi-suggestions');
+  if (box) box.style.display = 'none';
+}
+
+function selectSuggestion(id) {
+  document.getElementById('xrgi-id').value = id;
+  hideSuggestions();
+  const found = applyDBEntry(id);
+  if (found) {
+    const e = ANLAGEN_DB[id];
+    showToast(`✓ ${e.adresse.replace('\n', ', ')} – ${e.km} km / ${e.fahrtStd*60} min`);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// KAMERA – Foto anzeigen + manuelle Eingabe
+// ═══════════════════════════════════════════════════════════════
+let camStream = null;
+
+async function openScanner() {
+  document.getElementById('cam-modal').classList.add('active');
+  resetScanUI();
+  await startCam();
+}
+
+async function startCam() {
+  const video = document.getElementById('cam-video');
+  const guide = document.getElementById('guide-wrap');
+  const errOld = document.getElementById('cam-error');
+  if (errOld) errOld.remove();
+
+  try {
+    camStream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: { ideal: 'environment' }, width: { ideal: 1920 }, height: { ideal: 1080 } }
+    });
+    video.srcObject = camStream;
+    video.style.display = 'block';
+    document.getElementById('cam-preview').style.display = 'none';
+    if (guide) guide.style.display = 'block';
+    // iOS Safari braucht explizites play()
+    try { await video.play(); } catch(e) {}
+  } catch(err) {
+    video.style.display = 'none';
+    if (guide) guide.style.display = 'none';
+    document.getElementById('cam-area').insertAdjacentHTML('beforeend',
+      `<div id="cam-error" style="color:#8899cc;text-align:center;padding:28px 16px;font-size:13px;
+       position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+       flex-direction:column;gap:14px;background:#0a0f1e;">
+        <span style="font-size:40px;">📷</span>
+        <span>Kamera nicht verfügbar<br><small style="font-size:11px;color:#5566aa;">${err.message}</small></span>
+        <button onclick="document.getElementById('file-upload').click()"
+          style="background:var(--gold);color:var(--navy);border:none;border-radius:6px;
+          padding:8px 18px;font-family:Barlow,sans-serif;font-weight:700;font-size:13px;cursor:pointer;">
+          📁 Bild aus Galerie wählen
+        </button>
+      </div>`
+    );
+    // Eingabefeld direkt zeigen
+    document.getElementById('result-row').classList.add('show');
+    document.getElementById('confirm-btn').style.display = '';
+    document.getElementById('cap-btn').style.display = 'none';
+    setTimeout(() => document.getElementById('result-input').focus(), 300);
+  }
+}
+
+function capturePhoto() {
+  const video = document.getElementById('cam-video');
+  const canvas = document.getElementById('cam-canvas');
+  const w = video.videoWidth;
+  const h = video.videoHeight;
+  if (!w || !h) { showToast('Kamera noch nicht bereit – bitte kurz warten'); return; }
+  canvas.width = w;
+  canvas.height = h;
+  canvas.getContext('2d').drawImage(video, 0, 0, w, h);
+
+  // Stop camera stream
+  if (camStream) { camStream.getTracks().forEach(t => t.stop()); camStream = null; }
+
+  // Show photo
+  const prev = document.getElementById('cam-preview');
+  prev.src = canvas.toDataURL('image/jpeg', 0.95);
+  prev.style.display = 'block';
+  video.style.display = 'none';
+  const guide = document.getElementById('guide-wrap');
+  if (guide) guide.style.display = 'none';
+
+  // Show manual input
+  document.getElementById('cap-btn').style.display = 'none';
+  document.getElementById('retake-btn').style.display = '';
+  document.getElementById('result-row').classList.add('show');
+  document.getElementById('confirm-btn').style.display = '';
+  setTimeout(() => document.getElementById('result-input').focus(), 200);
+  showToast('Foto aufgenommen – Nummer aus dem Bild eingeben');
+}
+
+function handleFile(e) {
+  const f = e.target.files[0];
+  if (!f) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    if (!document.getElementById('cam-modal').classList.contains('active')) {
+      document.getElementById('cam-modal').classList.add('active');
+      resetScanUI();
+    }
+    if (camStream) { camStream.getTracks().forEach(t => t.stop()); camStream = null; }
+    const prev = document.getElementById('cam-preview');
+    prev.src = ev.target.result;
+    prev.style.display = 'block';
+    document.getElementById('cam-video').style.display = 'none';
+    const guide = document.getElementById('guide-wrap');
+    if (guide) guide.style.display = 'none';
+    document.getElementById('cap-btn').style.display = 'none';
+    document.getElementById('retake-btn').style.display = '';
+    document.getElementById('result-row').classList.add('show');
+    document.getElementById('confirm-btn').style.display = '';
+    setTimeout(() => document.getElementById('result-input').focus(), 200);
+  };
+  reader.readAsDataURL(f);
+  e.target.value = '';
+}
+
+function confirmScan() {
+  const v = document.getElementById('result-input').value.trim();
+  if (!v) { showToast('Bitte XRGI-ID eingeben'); document.getElementById('result-input').focus(); return; }
+  document.getElementById('xrgi-id').value = v;
+  const found = applyDBEntry(v);
+  if (found) {
+    const entry = ANLAGEN_DB[v];
+    showToast(`✓ ${entry.adresse.replace('\n', ', ')} – ${entry.km} km / ${entry.fahrtStd*60} min`);
+  } else {
+    showToast(`✓ XRGI-ID ${v} übernommen`);
+  }
+  closeModal();
+}
+
+function retake() { resetScanUI(); startCam(); }
+
+function closeModal() {
+  if (camStream) { camStream.getTracks().forEach(t => t.stop()); camStream = null; }
+  document.getElementById('cam-modal').classList.remove('active');
+}
+
+function resetScanUI() {
+  document.getElementById('result-row').classList.remove('show');
+  document.getElementById('db-match').classList.remove('show');
+  document.getElementById('result-input').value = '';
+  document.getElementById('result-input').placeholder = '10-stellige Nummer…';
+  document.getElementById('confirm-btn').style.display = 'none';
+  document.getElementById('retake-btn').style.display = 'none';
+  document.getElementById('cap-btn').style.display = '';
+  const prev = document.getElementById('cam-preview');
+  prev.style.display = 'none';
+  prev.src = '';
+  document.getElementById('cam-video').style.display = 'block';
+  const guide = document.getElementById('guide-wrap');
+  if (guide) guide.style.display = 'block';
+  const err = document.getElementById('cam-error');
+  if (err) err.remove();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('cam-modal');
+  if (modal) modal.addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+});
+
+// ═══════════════════════════════════════════════════════════════
+// FORMULAR-AKTIONEN
+// ═══════════════════════════════════════════════════════════════
+function addRow() {
+  document.getElementById('waren-body').insertAdjacentHTML('beforeend',
+    `<tr><td class="wtd"><input type="text" placeholder="Art.-Nr."></td>
+     <td class="wtd"><input type="text" placeholder="Bezeichnung"></td>
+     <td class="wtd"><input type="number" placeholder="0" min="0"></td>
+     <td style="text-align:center"><input type="text" placeholder="–" style="text-align:center"></td></tr>`
+  );
+}
+
+function saveForm() {
+  try {
+    localStorage.setItem('eb_save', JSON.stringify({
+      crNr:    document.getElementById('cr-nr').value,
+      datum:   document.getElementById('datum').value,
+      adresse: document.getElementById('adresse').value,
+      xrgiId:  document.getElementById('xrgi-id').value,
+      betrieb: document.getElementById('betriebsstunden').value,
+      tech:    document.getElementById('techniker').value,
+    }));
+  } catch(e) {}
+  showToast('Bericht gespeichert ✓');
+}
+
+function resetForm() {
+  if (!confirm('Alle Eingaben zurücksetzen?')) return;
+  document.querySelectorAll('input[type="text"],input[type="number"],textarea').forEach(el => {
+    if (!el.readOnly) el.value = '';
+  });
+  document.querySelectorAll('input[type="checkbox"]').forEach(el => el.checked = false);
+  document.querySelectorAll('select').forEach(el => el.value = '');
+  document.getElementById('autofill-badge').classList.remove('show');
+  const today = new Date();
+  const pad = n => String(n).padStart(2,'0');
+  document.getElementById('datum').value = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
+  // Reset signature
+  document.getElementById('sig-tech-empty').style.display = 'block';
+  document.getElementById('sig-tech-content').style.display = 'none';
+  if (sigCtx) sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+  showToast('Formular zurückgesetzt');
+}
+
+function showToast(msg) {
+  let t = document.getElementById('_toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = '_toast';
+    t.style.cssText = 'position:fixed;bottom:22px;right:22px;background:#1a2744;color:white;'
+      + 'padding:11px 18px;border-radius:8px;font-family:Barlow,sans-serif;font-size:13px;'
+      + 'font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.25);z-index:9999;transition:opacity .4s;'
+      + 'max-width:320px;line-height:1.5;';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.opacity = '1';
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.style.opacity = '0', 3500);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SPRACHEINGABE / DIKTIERUNG
+// ═══════════════════════════════════════════════════════════════
+let recognition = null;
+let dictating = false;
+let finalTranscript = '';   // ← global, damit onend sicher darauf zugreifen kann
+
+function toggleDictation() {
+  if (dictating) { stopDictation(); } else { startDictation(); }
+}
+
+function startDictation() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) {
+    showToast('Spracheingabe nicht verfügbar – bitte Chrome oder Edge nutzen.');
+    return;
+  }
+  finalTranscript = '';
+  recognition = new SR();
+  recognition.lang = 'de-DE';
+  recognition.continuous = true;
+  recognition.interimResults = true;
+
+  recognition.onstart = () => {
+    dictating = true;
+    document.getElementById('mic-btn').classList.add('active');
+    document.getElementById('mic-label').textContent = 'Stop';
+    document.getElementById('dictation-bar').style.display = 'flex';
+  };
+
+  recognition.onresult = e => {
+    let interim = '';
+    finalTranscript = '';
+    for (let i = 0; i < e.results.length; i++) {
+      if (e.results[i].isFinal) {
+        finalTranscript += e.results[i][0].transcript + ' ';
+      } else {
+        interim += e.results[i][0].transcript;
+      }
+    }
+    document.getElementById('interim-text').textContent = interim;
+  };
+
+  recognition.onend = () => {
+    const ta = document.getElementById(activeDictField || 'bem-fehler');
+    const text = finalTranscript.trim();
+    if (text) {
+      ta.value = ta.value.trim() ? ta.value.trim() + ' ' + text : text;
+    }
+    finalTranscript = '';
+    stopDictationUI();
+  };
+
+  recognition.onerror = e => {
+    stopDictationUI();
+    if (e.error === 'not-allowed') {
+      showToast('Mikrofonzugriff verweigert – bitte in Browsereinstellungen erlauben.');
+    } else if (e.error === 'no-speech') {
+      showToast('Kein Sprachsignal erkannt – bitte nochmal versuchen.');
+    } else if (e.error !== 'aborted') {
+      showToast('Fehler bei Spracheingabe: ' + e.error);
+    }
+  };
+
+  try { recognition.start(); }
+  catch(e) { showToast('Spracheingabe konnte nicht gestartet werden.'); stopDictationUI(); }
+}
+
+function stopDictation() {
+  if (recognition) { try { recognition.stop(); } catch(e) {} }
+}
+
+function stopDictationUI() {
+  dictating = false;
+  document.getElementById('mic-btn').classList.remove('active');
+  document.getElementById('mic-label').textContent = 'Diktieren';
+  document.getElementById('dictation-bar').style.display = 'none';
+  document.getElementById('interim-text').textContent = '';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// DIGITALE UNTERSCHRIFT TECHNIKER
+// ═══════════════════════════════════════════════════════════════
+let sigCanvas = null, sigCtx = null, sigDrawing = false;
+
+function onTechnikerChange() {
+  const sel   = document.getElementById('techniker');
+  const name  = sel ? sel.value : '';
+  const empty = document.getElementById('sig-tech-empty');
+  const block = document.getElementById('sig-tech-content');
+
+  if (!name) {
+    empty.style.display = 'block';
+    block.style.display = 'none';
+    return;
+  }
+
+  // Datum formatieren
+  const t = new Date();
+  const pad = n => String(n).padStart(2,'0');
+  const dateStr = `${pad(t.getDate())}.${pad(t.getMonth()+1)}.${t.getFullYear()}`;
+  document.getElementById('sig-tech-name').textContent = name;
+  document.getElementById('sig-tech-date').textContent = dateStr;
+  empty.style.display = 'none';
+  block.style.display = 'block';
+
+  // Canvas erst nach dem Rendern initialisieren
+  requestAnimationFrame(() => setTimeout(initSigCanvas, 50));
+}
+
+function initSigCanvas() {
+  sigCanvas = document.getElementById('sig-canvas');
+  if (!sigCanvas) return;
+  const w = sigCanvas.parentElement.offsetWidth || 340;
+  sigCanvas.width  = w;
+  sigCanvas.height = 90;
+  sigCtx = sigCanvas.getContext('2d');
+  sigCtx.strokeStyle = '#1a2744';
+  sigCtx.lineWidth   = 2.2;
+  sigCtx.lineCap     = 'round';
+  sigCtx.lineJoin    = 'round';
+
+  // Event-Listener nur einmal hinzufügen
+  sigCanvas.onmousedown  = sigStart;
+  sigCanvas.onmousemove  = sigMove;
+  sigCanvas.onmouseup    = () => sigDrawing = false;
+  sigCanvas.onmouseleave = () => sigDrawing = false;
+  sigCanvas.ontouchstart = sigTouchStart;
+  sigCanvas.ontouchmove  = sigTouchMove;
+  sigCanvas.ontouchend   = () => sigDrawing = false;
+}
+
+function getPos(e) {
+  const r = sigCanvas.getBoundingClientRect();
+  return {
+    x: (e.clientX - r.left) * (sigCanvas.width  / r.width),
+    y: (e.clientY - r.top)  * (sigCanvas.height / r.height)
+  };
+}
+
+function sigStart(e) {
+  e.preventDefault();
+  sigDrawing = true;
+  const p = getPos(e);
+  sigCtx.beginPath();
+  sigCtx.moveTo(p.x, p.y);
+  document.getElementById('sig-placeholder').style.display = 'none';
+}
+function sigMove(e) {
+  if (!sigDrawing) return;
+  e.preventDefault();
+  const p = getPos(e);
+  sigCtx.lineTo(p.x, p.y);
+  sigCtx.stroke();
+}
+function sigTouchStart(e) {
+  e.preventDefault();
+  sigDrawing = true;
+  const t = e.touches[0];
+  const r = sigCanvas.getBoundingClientRect();
+  sigCtx.beginPath();
+  sigCtx.moveTo(
+    (t.clientX - r.left) * (sigCanvas.width  / r.width),
+    (t.clientY - r.top)  * (sigCanvas.height / r.height)
+  );
+  document.getElementById('sig-placeholder').style.display = 'none';
+}
+function sigTouchMove(e) {
+  e.preventDefault();
+  if (!sigDrawing) return;
+  const t = e.touches[0];
+  const r = sigCanvas.getBoundingClientRect();
+  sigCtx.lineTo(
+    (t.clientX - r.left) * (sigCanvas.width  / r.width),
+    (t.clientY - r.top)  * (sigCanvas.height / r.height)
+  );
+  sigCtx.stroke();
+}
+function clearSig() {
+  if (!sigCtx) return;
+  sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+  document.getElementById('sig-placeholder').style.display = 'flex';
+}
+
+
+// ═══════════════════════════════════════════════════════════════
+// ZEITBERECHNUNG (Montage/Pausen)
+// ═══════════════════════════════════════════════════════════════
+function parseZeit(str) {
+  // Akzeptiert: "08:00", "08:00 - 16:00", "08:00 – 16:00", "08:00-16:00"
+  if (!str || !str.trim()) return null;
+  const match = str.trim().match(/(\d{1,2})[:\.](\d{2})\s*[-–]\s*(\d{1,2})[:\.](\d{2})/);
+  if (!match) return null;
+  const von = parseInt(match[1]) * 60 + parseInt(match[2]);
+  const bis = parseInt(match[3]) * 60 + parseInt(match[4]);
+  if (bis < von) return null; // Mitternacht überschritten – ignorieren
+  return (bis - von) / 60; // Stunden als Dezimalzahl
+}
+
+function formatStunden(h) {
+  if (h === null || h < 0) return '';
+  const std = Math.floor(h);
+  const min = Math.round((h - std) * 60);
+  return min === 0 ? `${std}:00` : `${std}:${String(min).padStart(2,'0')}`;
+}
+
+function berechneZeiten() {
+  const montage = parseZeit(document.getElementById('a-montagevon').value);
+  const pause   = parseZeit(document.getElementById('a-pausenvon').value);
+
+  // Pause
+  const pausenEl = document.getElementById('a-pausenanzahl');
+  if (pause !== null) {
+    pausenEl.value = formatStunden(pause);
+    pausenEl.style.color = 'var(--navy)';
+  } else {
+    pausenEl.value = '';
+  }
+
+  // Montage = Gesamtzeit − Pause
+  const montageEl = document.getElementById('a-montageanzahl');
+  if (montage !== null) {
+    const netto = pause !== null ? montage - pause : montage;
+    montageEl.value = formatStunden(Math.max(0, netto));
+    montageEl.style.color = netto < 0 ? '#e53935' : 'var(--navy)';
+  } else {
+    montageEl.value = '';
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// DIKTIEREN PRO BEMERKUNGSFELD
+// ═══════════════════════════════════════════════════════════════
+let activeDictField = 'bem-fehler'; // Standardfeld für Haupt-Mikrofon-Button
+
+function activateDictField(fieldId, label) {
+  activeDictField = fieldId;
+  document.getElementById('mic-active-field').textContent = label + ':';
+  toggleDictation();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SERVICE WORKER REGISTRIERUNG (für Offline-Nutzung)
+// ═══════════════════════════════════════════════════════════════
+if ('serviceWorker' in navigator) {
+  const swCode = `
+    const CACHE = 'ecpower-v1';
+    self.addEventListener('install', e => {
+      self.skipWaiting();
+    });
+    self.addEventListener('activate', e => {
+      e.waitUntil(clients.claim());
+    });
+    self.addEventListener('fetch', e => {
+      if (e.request.url.includes('fonts.googleapis') || e.request.url.includes('fonts.gstatic')) {
+        e.respondWith(
+          caches.open(CACHE).then(cache =>
+            cache.match(e.request).then(r => r || fetch(e.request).then(res => {
+              cache.put(e.request, res.clone()); return res;
+            }).catch(() => new Response('')))
+          )
+        );
+      }
+    });
+  `;
+  const blob = new Blob([swCode], { type: 'application/javascript' });
+  const swUrl = URL.createObjectURL(blob);
+  navigator.serviceWorker.register(swUrl).catch(() => {});
+}
+
+// ── App-Install-Prompt ────────────────────────────────────────
+let deferredInstallPrompt = null;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  // Install-Button anzeigen
+  const bar = document.getElementById('install-bar');
+  if (bar) bar.style.display = 'flex';
+});
+window.addEventListener('appinstalled', () => {
+  const bar = document.getElementById('install-bar');
+  if (bar) bar.style.display = 'none';
+  deferredInstallPrompt = null;
+  showToast('App wurde installiert ✓');
+});
+
+function installApp() {
+  if (deferredInstallPrompt) {
+    deferredInstallPrompt.prompt();
+    deferredInstallPrompt.userChoice.then(() => { deferredInstallPrompt = null; });
+  }
+}
+
+</script>
+</body>
+</html>
